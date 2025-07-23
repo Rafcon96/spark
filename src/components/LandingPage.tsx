@@ -21,12 +21,12 @@ const LandingPage: React.FC = () => {
       <section className=" w-full bg-black text-white flex flex-col lg:flex-row lg:items-start lg:justify-end lg:relative">
         {/* Text Content - Top on mobile, absolute positioned on large screens */}
         <div className="lg:px-10 px-2 text-right lg:absolute lg:z-10 lg:right-0 lg:top-3/8 lg:left-0 lg:shrink-0 justify-items-center lg:justify-items-start pt-10 ">
-          <div className="text-h1-responsive bg-gradient-horizontal bg-clip-text text-transparent w-fit m-0 cursor-default">
+          <div className="text-h1-responsive bg-gradient-horizontal bg-clip-text text-transparent w-fit m-0 cursor-default px-5">
             <h1 className="cursor-default">מטרות גדולות?</h1>
             <h1 className="cursor-default">תתחילו מסיפור.</h1>
           </div>
-          <div className="py-2">
-            <p className="lg:text-body-24 m-0 lg:max-w-[420px] max-w-[280px] text-body-18 cursor-default">
+          <div className="py-2 mx-4">
+            <p className="lg:text-body-24 m-0 p- lg:max-w-[420px] max-w-[280px] text-body-18 cursor-default px-[5px] lg:px-[2px]">
               יש לכם הזדמנות אמיתית:
               <span
                 className="px-1 cursor-default"
@@ -60,10 +60,10 @@ const LandingPage: React.FC = () => {
           ברוכים הבאים ל- SPARK
         </div>
 
-        <div className="text-h2-desktop block cursor-default">
+        <div className="text-h2-responsive block cursor-default">
           זה הרגע שלכם.
         </div>
-        <div className="text-body-24 block max-w-[640px] px-4 cursor-default">
+        <div className="text-body-18 block max-w-[640px] px-4 cursor-default">
           זה הרגע לו ציפיתם. השקעתם שבועות, ליטשתם את הרעיון, שקלתם כל מילה. כי
           כשאתם פוגשים את הקהל שלכם, אתם יודעים - שזה הרגע שבו אתם צריכים סיפור
           שעובד.{" "}

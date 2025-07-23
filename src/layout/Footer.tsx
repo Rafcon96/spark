@@ -1,5 +1,6 @@
 import React from "react";
 import ContactForm from "../components/ui/ContactForm";
+import SocialsComp from "../components/ui/Socials/SocialsComp";
 
 const Footer: React.FC = () => {
   return (
@@ -11,11 +12,24 @@ const Footer: React.FC = () => {
         <div className="flex justify-center text-h3-mobile lg:text-h3-desktop px-6 pt-12">
           כשהמטרה ברורה -
         </div>
-        <div className="flex justify-center text-h1-desktop lg:text-h1-desktop  px-6 pb-12 max-w-[483px] text-center mx-auto">
+        <div className="flex justify-center text-h1-responsive  px-6 pb-12 max-w-[483px] text-center mx-auto">
           גם הסיפור צריך להיות כזה.
         </div>
         <ContactForm />
+        <div className="flex justify-center py-4">
+          <div className="text-caption-sm">או באמצעות</div>
+        </div>
+        <div className="flex justify-center pb-16">
+          <SocialsComp />
+        </div>
+        <div className="flex justify-center pb-14">
+          <img src={"./spark.svg"} alt="logo" />
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8" dir={"ltr"}>
+          <div className="flex justify-center">
+            <div className="w-[150px]  cursor-default"></div>
+            {/* <img src={"./spark.svg"} alt="logo" /> */}
+          </div>
           {/* Company Info */}
           <div className="space-y-4">
             <h3 className="text-xl font-bold">Spark</h3>

@@ -14,12 +14,12 @@ const Services: React.FC = () => {
         {/* Text Section */}
         <div className="flex flex-col items-center justify-center text-center">
           {/* Responsive H2 Heading */}
-          <h2 className="text-h2-responsive font-bold text-gray-900 mb-8">
+          <h2 className="text-h2-responsive font-bold text-gray-900 mb-8 cursor-default">
             השירותים שלנו
           </h2>
 
           {/* Body Text - 2 lines, 4 words each */}
-          <div className="text-body-24 text-gray-600 max-w-2xl">
+          <div className="text-body-24 text-gray-600 max-w-2xl cursor-default">
             <p className="mb-2">פתרונות יצירתיים מותאמים אישית</p>
             <p>לכל צורך עסקי</p>
           </div>
@@ -36,11 +36,11 @@ const Services: React.FC = () => {
                 <div className="flex-1 lg:w-2/3 pt-2 lg:pt-4">
                   {/* Semi Header */}
                   <div className="mb-6">
-                    <p className="text-body-18 font-normal text-gray-800 mb-2">
+                    <p className="text-body-18 font-normal text-gray-800 mb-2 cursor-default">
                       אנו מפתחים אסטרטגיות מיצוב מקיפות המותאמות לצרכי הלקוח
                       ולמטרות העסק.
                     </p>
-                    <p className="text-body-18 font-normal text-gray-800">
+                    <p className="text-body-18 font-normal text-gray-800 cursor-default">
                       הצוות שלנו מנתח את השוק, מזהה הזדמנויות ובונה תוכנית פעולה
                       ברורה להשגת היעדים.
                     </p>
@@ -62,7 +62,7 @@ const Services: React.FC = () => {
                           />
                         </svg>
                       </div>
-                      <p className="text-body-18 text-gray-700">
+                      <p className="text-body-18 text-gray-700 cursor-default">
                         ניתוח מעמיק של השוק והמתחרים לזיהוי הזדמנויות עסקיות
                       </p>
                     </div>

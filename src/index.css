@@ -1,5 +1,7 @@
 @import "tailwindcss";
-
+ body {
+  cursor: arrow;
+ }
 @layer base {
   :root {
     /* === Fonts === */

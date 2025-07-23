@@ -7,7 +7,7 @@ const SuccessStories: React.FC = () => {
       <div className="flex flex-col lg:flex-row justify-between px-16 gap-8 lg:gap-0">
         {/* Header - H2 Responsive, 3 Hebrew words */}
         <div className="w-full lg:w-auto">
-          <h2 className="text-h2-mobile lg:text-h2-desktop font-bold text-gray-900 mb-6 lg:mb-8 ">
+          <h2 className="text-h2-mobile lg:text-h2-desktop font-bold text-gray-900 mb-6 lg:mb-8 cursor-default">
             סיפורי הצלחה
           </h2>
         </div>
@@ -15,7 +15,7 @@ const SuccessStories: React.FC = () => {
         {/* Second Column */}
         <div className="flex flex-col gap-4 w-full lg:w-auto">
           {/* First Element - 3 lines Hebrew, body-16, color #535862 */}
-          <div className="text-body-16 text-[#535862] leading-relaxed">
+          <div className="text-body-16 text-[#535862] leading-relaxed cursor-default">
             <p>
               אנחנו גאים בהצלחות הלקוחות שלנו ובסיפורים המעוררים השראה שהם
               יוצרים יחד איתנו.
@@ -31,7 +31,7 @@ const SuccessStories: React.FC = () => {
           </div>
 
           {/* Second Element - Caption lg with gradient, 2 lines, 7 words */}
-          <div className="text-caption-lg bg-gradient-horizontal bg-clip-text text-transparent leading-relaxed w-fit">
+          <div className="text-caption-lg bg-gradient-horizontal bg-clip-text text-transparent leading-relaxed w-fit cursor-default">
             <p>צפו בסיפורים שמשנים חיים</p>
             <p>ומגשימים חלומות עסקיים גדולים</p>
           </div>

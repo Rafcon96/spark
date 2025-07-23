@@ -169,6 +169,7 @@ function GenericSlider<T>({
     }, autoPlayInterval);
 
     return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [autoPlay, autoPlayInterval, currentIndex, isPaused]);
 
   const handleMouseEnter = () => {

@@ -1,11 +1,13 @@
 import React from "react";
 
-interface ReviewCardProps {
+export interface ReviewCardProps {
+  id: number;
   rating: number; // 1-5 stars
   reviewText: string;
   authorName: string;
   authorRole: string;
   authorAvatar?: string; // URL to avatar image, if not provided will show first letter
+  fixedHeight?: boolean; // Default true for fixed height, false for content-based height
 }
 
 const ReviewCard: React.FC<ReviewCardProps> = ({
@@ -14,6 +16,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
   authorName,
   authorRole,
   authorAvatar,
+  fixedHeight = true,
 }) => {
   const renderStars = () => {
     const stars = [];
@@ -40,7 +43,11 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
   };
 
   return (
-    <div className="bg-[#E9EAEB] rounded-lg p-6 lg:p-8 shadow-sm w-full max-w-[400px] min-h-[320px] flex-shrink-0 flex flex-col justify-between">
+    <div
+      className={`bg-[#E9EAEB] rounded-lg shadow-sm w-full flex-shrink-0 flex flex-col justify-between ${
+        fixedHeight ? "h-full p-4 lg:p-6" : "h-fit p-6 lg:p-8"
+      }`}
+    >
       {/* Stars Rating - Left aligned */}
       <div className="flex justify-start mb-6 lg:mb-8">
         <div className="flex gap-1">{renderStars()}</div>
@@ -48,7 +55,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
 
       {/* Review Text - Left aligned */}
       <div className="mb-6 lg:mb-8 text-left flex-1">
-        <p className="text-lg lg:text-xl xl:text-2xl leading-relaxed text-gray-800 font-normal">
+        <p className="text-lg lg:text-xl xl:text-2xl leading-relaxed text-gray-800 font-normal cursor-default">
           {reviewText}
         </p>
       </div>
@@ -71,10 +78,12 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
         </div>
 
         <div className="text-left">
-          <h4 className="font-bold text-lg lg:text-xl text-gray-900">
+          <h4 className="font-bold text-lg lg:text-xl text-gray-900 cursor-default">
             {authorName}
           </h4>
-          <p className="text-gray-600 text-base lg:text-lg">{authorRole}</p>
+          <p className="text-gray-600 text-base lg:text-lg cursor-default">
+            {authorRole}
+          </p>
         </div>
       </div>
     </div>

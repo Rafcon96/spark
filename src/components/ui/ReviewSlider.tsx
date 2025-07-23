@@ -24,6 +24,7 @@ const ReviewSlider: React.FC<ReviewSliderProps> = ({
 }) => {
   const renderReviewCard = (review: Review) => (
     <ReviewCard
+      id={review.id}
       rating={review.rating}
       reviewText={review.reviewText}
       authorName={review.authorName}

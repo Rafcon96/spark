@@ -141,6 +141,7 @@ const InfiniteReviewCarousel: React.FC<InfiniteReviewCarouselProps> = ({
           className="absolute"
         >
           <ReviewCard
+            id={review.id}
             rating={review.rating}
             reviewText={review.reviewText}
             authorName={review.authorName}

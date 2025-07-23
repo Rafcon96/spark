@@ -1,10 +1,21 @@
 import React from "react";
+import ContactForm from "../components/ui/ContactForm";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="w-full bg-gray-900 text-white z-100 -mt-[150px]">
+    <footer
+      dir="rtl"
+      className="w-full bg-gray-900 text-white z-100 -mt-[150px]"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="flex justify-center text-h3-mobile lg:text-h3-desktop px-6 pt-12">
+          כשהמטרה ברורה -
+        </div>
+        <div className="flex justify-center text-h1-desktop lg:text-h1-desktop  px-6 pb-12 max-w-[483px] text-center mx-auto">
+          גם הסיפור צריך להיות כזה.
+        </div>
+        <ContactForm />
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8" dir={"ltr"}>
           {/* Company Info */}
           <div className="space-y-4">
             <h3 className="text-xl font-bold">Spark</h3>

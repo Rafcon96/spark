@@ -1,7 +1,5 @@
 @import "tailwindcss";
- body {
-  cursor: arrow;
- }
+
 @layer base {
   :root {
     /* === Fonts === */
@@ -87,6 +85,7 @@
       font-size: var(--text-h1-desktop);
       line-height: var(--lh-h1-desktop);
       letter-spacing: var(--ls-h1-desktop);
+      font-family: var(--font-noto);
     }
   }
   
@@ -103,6 +102,7 @@
       font-size: var(--text-h2-desktop);
       line-height: var(--lh-h2-desktop);
       letter-spacing: var(--ls-h2-desktop);
+      font-family: var(--font-noto);
     }
   }
   
@@ -111,7 +111,7 @@
     line-height: var(--lh-h3-mobile);
     font-weight: 400;
     letter-spacing: var(--ls-h3-mobile);
-    font-family: var(--font-poppins);
+    font-family: var(--font-noto);
   }
   
   @media (min-width: 1024px) {
@@ -119,6 +119,8 @@
       font-size: var(--text-h3-desktop);
       line-height: var(--lh-h3-desktop);
       letter-spacing: var(--ls-h3-desktop);
+      font-family: var(--font-noto);
+  
     }
   }
   

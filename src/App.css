@@ -1,0 +1,255 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* === Fonts === */
+    --font-noto: "Noto Sans Hebrew New", sans-serif;
+    --font-poppins: "Poppins", sans-serif;
+    --font-playpen: "Playpen Sans Hebrew", cursive;
+
+    /* === Typography === */
+    --text-h1-desktop: 64px;
+    --lh-h1-desktop: 64px;
+    --ls-h1-desktop: -0.0625em;
+
+    --text-h2-desktop: 56px;
+    --lh-h2-desktop: 64px;
+    --ls-h2-desktop: -0.0625em;
+
+    --text-h3-desktop: 40px;
+    --lh-h3-desktop: 40px;
+    --ls-h3-desktop: -0.0625em;
+
+    --text-h1-mobile: 40px;
+    --lh-h1-mobile: 40px;
+    --ls-h1-mobile: -0.025em;
+
+    --text-h2-mobile: 40px;
+    --lh-h2-mobile: 48px;
+    --ls-h2-mobile: -0.0625em;
+
+    --text-h3-mobile: 32px;
+    --lh-h3-mobile: 32px;
+    --ls-h3-mobile: -0.0625em;
+
+    --text-body-14: 14px;
+    --lh-body-14: 20px;
+
+    --text-body-16: 16px;
+    --lh-body-16: 24px;
+
+    --text-body-18: 18px;
+    --lh-body-18: 24px;
+
+    --text-body-24: 24px;
+    --lh-body-24: 30px;
+
+    --text-caption-sm: 14px;
+    --lh-caption-sm: 20px;
+
+    --text-caption-lg: 18px;
+    --lh-caption-lg: 24px;
+
+    /* === Colors === */
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-gray-900: #181d27;
+    --color-gray-600: #535862;
+    --color-gray-500: #717680;
+    --color-gray-300: #d5d7da;
+    --color-gray-200: #e9eaeb;
+    --color-gray-50: #fafafa;
+    --color-turquoise: #12c2e9;
+    --color-coral-pink: #f7797d;
+    --color-lilac: #c471ed;
+    /* background: linear-gradient(90deg, #F7797D 0%, #C471ED 52.08%, #12C2E9 100%); */
+
+    /* === Gradients === */
+    --gradient-horizontal: linear-gradient(90deg, #F7797D 12%, #C471ED 52.08%, #12C2E9 100%);
+    --gradient-vertical: linear-gradient(52.14deg, #f7797d 8%, #c471ed 52%, #12c2e9 100%);
+  }
+}
+
+@layer utilities {
+  /* === Typography === */
+  .text-h1-responsive {
+    font-size: var(--text-h1-mobile);
+    line-height: var(--lh-h1-mobile);
+    font-weight: 700;
+    letter-spacing: var(--ls-h1-mobile);
+    font-family: var(--font-noto);
+  }
+  
+  @media (min-width: 1024px) {
+    .text-h1-responsive {
+      font-size: var(--text-h1-desktop);
+      line-height: var(--lh-h1-desktop);
+      letter-spacing: var(--ls-h1-desktop);
+    }
+  }
+  
+  .text-h2-responsive {
+    font-size: var(--text-h2-mobile);
+    line-height: var(--lh-h2-mobile);
+    font-weight: 700;
+    letter-spacing: var(--ls-h2-mobile);
+    font-family: var(--font-noto);
+  }
+  
+  @media (min-width: 1024px) {
+    .text-h2-responsive {
+      font-size: var(--text-h2-desktop);
+      line-height: var(--lh-h2-desktop);
+      letter-spacing: var(--ls-h2-desktop);
+    }
+  }
+  
+  .text-h3-responsive {
+    font-size: var(--text-h3-mobile);
+    line-height: var(--lh-h3-mobile);
+    font-weight: 400;
+    letter-spacing: var(--ls-h3-mobile);
+    font-family: var(--font-poppins);
+  }
+  
+  @media (min-width: 1024px) {
+    .text-h3-responsive {
+      font-size: var(--text-h3-desktop);
+      line-height: var(--lh-h3-desktop);
+      letter-spacing: var(--ls-h3-desktop);
+    }
+  }
+  
+  /* Keep individual classes for specific use cases */
+  .text-h1-desktop {
+    font-size: var(--text-h1-desktop);
+    line-height: var(--lh-h1-desktop);
+    font-weight: 700;
+    letter-spacing: var(--ls-h1-desktop);
+    font-family: var(--font-noto);
+  }
+  .text-h2-desktop {
+    font-size: var(--text-h2-desktop);
+    line-height: var(--lh-h2-desktop);
+    font-weight: 700;
+    letter-spacing: var(--ls-h2-desktop);
+    font-family: var(--font-noto);
+  }
+  .text-h3-desktop {
+    font-size: var(--text-h3-desktop);
+    line-height: var(--lh-h3-desktop);
+    font-weight: 400;
+    letter-spacing: var(--ls-h3-desktop);
+    font-family: var(--font-poppins);
+  }
+  .text-h1-mobile {
+    font-size: var(--text-h1-mobile);
+    line-height: var(--lh-h1-mobile);
+    font-weight: 700;
+    letter-spacing: var(--ls-h1-mobile);
+    font-family: var(--font-noto);
+  }
+  .text-h2-mobile {
+    font-size: var(--text-h2-mobile);
+    line-height: var(--lh-h2-mobile);
+    font-weight: 700;
+    letter-spacing: var(--ls-h2-mobile);
+    font-family: var(--font-noto);
+  }
+  .text-h3-mobile {
+    font-size: var(--text-h3-mobile);
+    line-height: var(--lh-h3-mobile);
+    font-weight: 400;
+    letter-spacing: var(--ls-h3-mobile);
+    font-family: var(--font-poppins);
+  }
+  .text-body-14 {
+    font-size: var(--text-body-14);
+    line-height: var(--lh-body-14);
+    font-weight: 400;
+    font-family: var(--font-noto);
+  }
+  .text-body-16 {
+    font-size: var(--text-body-16);
+    line-height: var(--lh-body-16);
+    font-weight: 400;
+    font-family: var(--font-noto);
+  }
+  .text-body-18 {
+    font-size: var(--text-body-18);
+    line-height: var(--lh-body-18);
+    font-weight: 400;
+    font-family: var(--font-noto);
+  }
+  .text-body-24 {
+    font-size: var(--text-body-24);
+    line-height: var(--lh-body-24);
+    font-weight: 400;
+    font-family: var(--font-noto);
+  }
+  .text-caption-sm {
+    font-size: var(--text-caption-sm);
+    line-height: var(--lh-caption-sm);
+    font-weight: 600;
+    font-family: var(--font-playpen);
+  }
+  .text-caption-lg {
+    font-size: var(--text-caption-lg);
+    line-height: var(--lh-caption-lg);
+    font-weight: 600;
+    font-family: var(--font-playpen);
+  }
+
+  /* === Color Utilities === */
+  .bg-gray-900 { background-color: var(--color-gray-900); }
+  .bg-gray-600 { background-color: var(--color-gray-600); }
+  .bg-gray-500 { background-color: var(--color-gray-500); }
+  .bg-gray-300 { background-color: var(--color-gray-300); }
+  .bg-gray-200 { background-color: var(--color-gray-200); }
+  .bg-gray-50  { background-color: var(--color-gray-50); }
+  .bg-black    { background-color: var(--color-black); }
+  .bg-white    { background-color: var(--color-white); }
+  .bg-turquoise    { background-color: var(--color-turquoise); }
+  .bg-coral-pink   { background-color: var(--color-coral-pink); }
+  .bg-lilac        { background-color: var(--color-lilac); }
+
+  .text-gray-900 { color: var(--color-gray-900); }
+  .text-gray-600 { color: var(--color-gray-600); }
+  .text-gray-500 { color: var(--color-gray-500); }
+  .text-gray-300 { color: var(--color-gray-300); }
+  .text-gray-200 { color: var(--color-gray-200); }
+  .text-gray-50  { color: var(--color-gray-50); }
+  .text-black    { color: var(--color-black); }
+  .text-white    { color: var(--color-white); }
+  .text-turquoise    { color: var(--color-turquoise); }
+  .text-coral-pink   { color: var(--color-coral-pink); }
+  .text-lilac        { color: var(--color-lilac); }
+
+  /* === Gradient Utilities === */
+  .bg-gradient-horizontal {
+    background-image: var(--gradient-horizontal);
+  }
+  .bg-gradient-vertical {
+    background-image: var(--gradient-vertical);
+  } 
+}
+
+
+
+
+/* Infinity Carousel Animations */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% - 1rem));
+  }
+}
+
+
+
+
+/* Stack Carousel Animations */
+
+

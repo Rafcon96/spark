@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@100..900&display=swap');
+
 @import "tailwindcss";
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@100..900&display=swap'); */
 
 @layer base {
   :root {
     /* === Fonts === */
-    --font-noto: "Noto Sans Hebrew New", sans-serif;
+    --font-noto: "Noto Sans Hebrew", sans-serif;
     --font-poppins: "Poppins", sans-serif;
     --font-playpen: "Playpen Sans Hebrew", cursive;
 
@@ -120,7 +123,7 @@
       line-height: var(--lh-h3-desktop);
       letter-spacing: var(--ls-h3-desktop);
       font-family: var(--font-noto);
-  
+
     }
   }
   

@@ -32,7 +32,7 @@ const StatsSection: React.FC = () => {
   const statsData: StatColumn[] = [
     {
       value: "25+",
-      height: 160,
+      height: 250,
       content: ["פרויקטים מוצלחים"],
     },
     {
@@ -96,7 +96,10 @@ const StatsSection: React.FC = () => {
               isMobile
                 ? {
                     height: "80px",
-                    alignSelf: "baseline",
+                    alignSelf: "flex-start",
+                    paddingLeft: "0px",
+                    paddingRight: "2px",
+                    justifySelf: "flex-start",
                     width: `${Math.min(90, (stat.height / 500) * 100)}%`,
                   }
                 : {

@@ -49,7 +49,7 @@ const FloatingDockMobile = ({
         {open && (
           <motion.div
             layoutId="nav"
-            className="absolute inset-x-0 bottom-full mb-2 flex flex-col gap-2 cursor-pointer pr-4"
+            className="absolute left-0.5 bottom-full mb-2 flex flex-col gap-2 cursor-pointer"
             onMouseLeave={() => setActiveIndex(null)}
           >
             {items.map((item, idx) => (

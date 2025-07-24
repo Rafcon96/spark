@@ -4,7 +4,7 @@
  * Mobile navbar is better positioned at bottom right.
  **/
 
-import { IconLayoutNavbarCollapse } from "@tabler/icons-react";
+import { IconChevronUp, IconChevronDown } from "@tabler/icons-react";
 import {
   AnimatePresence,
   MotionValue,
@@ -42,13 +42,15 @@ const FloatingDockMobile = ({
   className?: string;
 }) => {
   const [open, setOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
   return (
     <div className={cn("relative block md:hidden", className)}>
       <AnimatePresence>
         {open && (
           <motion.div
             layoutId="nav"
-            className="absolute inset-x-0 bottom-full mb-2 flex flex-col gap-2 "
+            className="absolute inset-x-0 bottom-full mb-2 flex flex-col gap-2 cursor-pointer pr-4"
+            onMouseLeave={() => setActiveIndex(null)}
           >
             {items.map((item, idx) => (
               <motion.div
@@ -66,14 +68,33 @@ const FloatingDockMobile = ({
                   },
                 }}
                 transition={{ delay: (items.length - 1 - idx) * 0.05 }}
+                onMouseEnter={() => setActiveIndex(idx)}
+                className="relative"
               >
                 <a
                   href={item.href}
                   key={item.title}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-900 dark:bg-neutral-900"
+                  className={`flex h-10 w-10 items-center justify-center rounded-full transition-all duration-200 mr-3 ${
+                    activeIndex === idx
+                      ? "bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 shadow-lg shadow-purple-500/50 scale-110"
+                      : "bg-gray-900 dark:bg-neutral-900 hover:bg-gray-800"
+                  }`}
                 >
                   <div className="h-4 w-4">{item.icon}</div>
                 </a>
+                {activeIndex === idx && (
+                  <motion.div
+                    initial={{ opacity: 0, x: 10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 10 }}
+                    className="absolute left-12 top-1/2 transform -translate-y-1/2 
+                               bg-black/80 text-white px-4 py-2 rounded-md text-sm 
+                               min-w-[200px] text-center
+                               leading-tight break-words"
+                  >
+                    {item.title}
+                  </motion.div>
+                )}
               </motion.div>
             ))}
           </motion.div>
@@ -81,9 +102,21 @@ const FloatingDockMobile = ({
       </AnimatePresence>
       <button
         onClick={() => setOpen(!open)}
-        className=" bg-black flex h-10 w-10 items-center justify-center rounded-full bg-gray-50 dark:bg-neutral-800"
+        className="cursor-pointer relative flex h-12 w-12 items-center justify-center rounded-full 
+                   bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 
+                   shadow-lg shadow-purple-500/50 
+                   hover:shadow-xl hover:shadow-purple-500/70 
+                   transform hover:scale-105 transition-all duration-300
+                   before:absolute before:inset-0 before:rounded-full 
+                   before:bg-gradient-to-r before:from-blue-400 before:via-purple-400 before:to-pink-400 
+                   before:opacity-0 hover:before:opacity-20 before:blur-xl before:transition-all before:duration-300
+                   active:scale-95 active:shadow-md"
       >
-        <IconLayoutNavbarCollapse className="h-5 w-5 text-neutral-500 dark:text-neutral-400" />
+        {open ? (
+          <IconChevronDown className="h-6 w-6 text-white drop-shadow-sm relative z-10" />
+        ) : (
+          <IconChevronUp className="h-6 w-6 text-white drop-shadow-sm relative z-10" />
+        )}
       </button>
     </div>
   );

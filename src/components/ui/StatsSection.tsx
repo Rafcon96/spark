@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 
 interface StatColumn {
   value: string;
-  height: number;
+  height?: number;
   content: string[];
+  width?: number;
 }
 
 const StatsSection: React.FC = () => {
@@ -32,23 +33,27 @@ const StatsSection: React.FC = () => {
   const statsData: StatColumn[] = [
     {
       value: "25+",
-      height: 250,
-      content: ["פרויקטים מוצלחים"],
+      height: 220,
+      width: 70,
+      content: ["שנה של ניסיון משותף"],
     },
     {
       value: "500+",
       height: 500,
-      content: ["לקוחות מרוצים"],
+      width: 90,
+      content: ["הרצאות, הדרכות והכשרות "],
     },
     {
       value: "400+",
       height: 400,
-      content: ["סיפורי הצלחה"],
+      width: 85,
+      content: ["עיצובי מצגות, אתרים וסושיאל"],
     },
     {
       value: "300+",
       height: 300,
-      content: ["המלצות חמות"],
+      width: 80,
+      content: ["תהליכי האסטרטגיה וסטוריטלינג"],
     },
   ];
 
@@ -89,7 +94,7 @@ const StatsSection: React.FC = () => {
                        hover:shadow-xl hover:shadow-gray-300/50 hover:border-gray-300 hover:scale-105 hover:z-10
                        ${
                          index === activeIndex
-                           ? "shadow-xl shadow-gray-300/50 border-gray-300 scale-105 z-10"
+                           ? "shadow-xl shadow-gray-300/50 border-gray-300 scale-101 z-10"
                            : "border-[#E9EAEB]"
                        }`}
             style={
@@ -100,7 +105,7 @@ const StatsSection: React.FC = () => {
                     paddingLeft: "0px",
                     paddingRight: "2px",
                     justifySelf: "flex-start",
-                    width: `${Math.min(90, (stat.height / 500) * 100)}%`,
+                    width: `${stat.width}%`,
                   }
                 : {
                     height: `${stat.height}px`,
@@ -112,7 +117,7 @@ const StatsSection: React.FC = () => {
               {stat.content.map((line, lineIndex) => (
                 <p
                   key={lineIndex}
-                  className="text-sm text-gray-600 leading-tight max-lg:text-xs"
+                  className="lg:text-body-18 text-gray-600  text-xs text-right pr-2 align-start"
                 >
                   {line}
                 </p>
@@ -120,8 +125,8 @@ const StatsSection: React.FC = () => {
             </div>
 
             {/* Value - appears last on mobile, first on desktop */}
-            <div className="text-center lg:text-center max-lg:text-right lg:order-1 max-lg:order-2">
-              <span className="text-2xl font-bold text-gray-900">
+            <div className="text-center lg:text-center max-lg:text-right lg:order-1 max-lg:order-2 px-2">
+              <span className="text-h3-responsive font-bold text-gray-900">
                 {stat.value}
               </span>
             </div>

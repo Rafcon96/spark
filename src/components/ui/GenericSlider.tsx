@@ -24,49 +24,48 @@ const getSlideStyles = (itemsPerView: number) => ({
 });
 
 const rightArrowStyles = {
-  position: "absolute" as const,
-  top: "50%",
-  transform: "translate(0, -50%)",
-  right: "10px",
-  fontSize: "24px",
+  fontSize: "16px",
   color: "#333",
-  zIndex: 10,
   cursor: "pointer",
   backgroundColor: "rgba(255, 255, 255, 0.9)",
-  borderRadius: "50%",
-  width: "48px",
-  height: "48px",
+  borderRadius: "4px",
+  width: "32px",
+  height: "32px",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
+  boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
   transition: "all 0.3s ease",
+  userSelect: "none" as const,
 };
 
 const leftArrowStyles = {
-  position: "absolute" as const,
-  top: "50%",
-  transform: "translate(0, -50%)",
-  left: "10px",
-  fontSize: "24px",
+  fontSize: "16px",
   color: "#333",
-  zIndex: 10,
   cursor: "pointer",
   backgroundColor: "rgba(255, 255, 255, 0.9)",
-  borderRadius: "50%",
-  width: "48px",
-  height: "48px",
+  borderRadius: "4px",
+  width: "32px",
+  height: "32px",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
+  boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
   transition: "all 0.3s ease",
+  userSelect: "none" as const,
+};
+
+const navigationContainerStyles = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  marginTop: "20px",
+  gap: "16px",
 };
 
 const dotsContainerStyles = {
   display: "flex",
   justifyContent: "center",
-  marginTop: "20px",
   gap: "8px",
 };
 
@@ -79,6 +78,7 @@ const dotStyles = {
   borderRadius: "50%",
   display: "inline-block",
   transition: "background-color 0.3s ease",
+  userSelect: "none" as const,
 };
 
 const activeDotStyles = {
@@ -91,6 +91,7 @@ const sliderStyles = {
   width: "100%",
   padding: "0 20px",
   overflow: "hidden",
+  cursor: "default",
 };
 
 function GenericSlider<T>({
@@ -195,7 +196,7 @@ function GenericSlider<T>({
   });
 
   return (
-    <div className="w-full">
+    <div className="w-full" style={{ userSelect: "none" }}>
       <div
         style={sliderStyles}
         onMouseEnter={handleMouseEnter}
@@ -208,62 +209,61 @@ function GenericSlider<T>({
             </div>
           ))}
         </div>
-
-        {/* Navigation Arrows */}
-        {totalSlides > 1 && (
-          <>
-            <div
-              style={leftArrowStyles}
-              onClick={goToPrevious}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor =
-                  "rgba(255, 255, 255, 1)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor =
-                  "rgba(255, 255, 255, 0.9)";
-              }}
-            >
-              ❮
-            </div>
-            <div
-              style={rightArrowStyles}
-              onClick={goToNext}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor =
-                  "rgba(255, 255, 255, 1)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor =
-                  "rgba(255, 255, 255, 0.9)";
-              }}
-            >
-              ❯
-            </div>
-          </>
-        )}
       </div>
 
-      {/* Dots Navigation */}
+      {/* Navigation Container with Arrows and Dots */}
       {totalSlides > 1 && (
-        <div style={dotsContainerStyles}>
-          {Array.from({ length: totalSlides }).map((_, index) => (
-            <span
-              key={index}
-              style={index === currentIndex ? activeDotStyles : dotStyles}
-              onClick={() => goToSlide(index)}
-              onMouseEnter={(e) => {
-                if (index !== currentIndex) {
-                  e.currentTarget.style.backgroundColor = "#666";
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (index !== currentIndex) {
-                  e.currentTarget.style.backgroundColor = "#bbb";
-                }
-              }}
-            />
-          ))}
+        <div style={navigationContainerStyles}>
+          {/* Left Arrow */}
+          <div
+            style={leftArrowStyles}
+            onClick={goToPrevious}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 1)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor =
+                "rgba(255, 255, 255, 0.9)";
+            }}
+          >
+            ❮
+          </div>
+
+          {/* Dots Navigation */}
+          <div style={dotsContainerStyles}>
+            {Array.from({ length: totalSlides }).map((_, index) => (
+              <span
+                key={index}
+                style={index === currentIndex ? activeDotStyles : dotStyles}
+                onClick={() => goToSlide(index)}
+                onMouseEnter={(e) => {
+                  if (index !== currentIndex) {
+                    e.currentTarget.style.backgroundColor = "#666";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (index !== currentIndex) {
+                    e.currentTarget.style.backgroundColor = "#bbb";
+                  }
+                }}
+              />
+            ))}
+          </div>
+
+          {/* Right Arrow */}
+          <div
+            style={rightArrowStyles}
+            onClick={goToNext}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 1)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor =
+                "rgba(255, 255, 255, 0.9)";
+            }}
+          >
+            ❯
+          </div>
         </div>
       )}
     </div>

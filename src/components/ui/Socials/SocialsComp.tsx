@@ -33,11 +33,11 @@ const SocialsComp: React.FC = () => {
   ];
 
   return (
-    <div className="w-fit">
+    <div className="w-fit ">
       <FloatingDock
         items={socialItems}
         desktopClassName="bg-white/80 backdrop-blur-sm border border-gray-200"
-        mobileClassName="bg-white/80 backdrop-blur-sm border border-gray-200"
+        mobileClassName="bg-transparent backdrop-blur-sm cursor-pointer"
       />
     </div>
   );

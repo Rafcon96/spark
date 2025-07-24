@@ -45,23 +45,32 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
   return (
     <div
       className={`bg-[#E9EAEB] rounded-lg shadow-sm w-full flex-shrink-0 flex flex-col justify-between ${
-        fixedHeight ? "h-full p-4 lg:p-6" : "h-fit p-6 lg:p-8"
+        fixedHeight ? "h-[350px] lg:h-[400px] p-4 lg:p-6" : "h-fit p-6 lg:p-8"
       }`}
     >
-      {/* Stars Rating - Left aligned */}
-      <div className="flex justify-start mb-6 lg:mb-8">
+      {/* Stars Rating - Right aligned */}
+      <div className="flex justify-end mb-6 lg:mb-8">
         <div className="flex gap-1">{renderStars()}</div>
       </div>
 
-      {/* Review Text - Left aligned */}
-      <div className="mb-6 lg:mb-8 text-left flex-1">
+      {/* Review Text - Right aligned */}
+      <div className="mb-6 lg:mb-8 text-right flex-1">
         <p className="text-lg lg:text-xl xl:text-2xl leading-relaxed text-gray-800 font-normal cursor-default">
           {reviewText}
         </p>
       </div>
 
-      {/* Author Info - Left aligned */}
-      <div className="flex items-center justify-start gap-3 lg:gap-4">
+      {/* Author Info - Right aligned */}
+      <div className="flex items-center justify-end gap-3 lg:gap-4">
+        <div className="text-right">
+          <h4 className="font-bold text-lg lg:text-xl text-gray-900 cursor-default">
+            {authorName}
+          </h4>
+          <p className="text-gray-600 text-base lg:text-lg cursor-default">
+            {authorRole}
+          </p>
+        </div>
+
         {/* Avatar Circle */}
         <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-[#D5D7DA] flex items-center justify-center flex-shrink-0">
           {authorAvatar ? (
@@ -75,15 +84,6 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
               {getInitials(authorName)}
             </span>
           )}
-        </div>
-
-        <div className="text-left">
-          <h4 className="font-bold text-lg lg:text-xl text-gray-900 cursor-default">
-            {authorName}
-          </h4>
-          <p className="text-gray-600 text-base lg:text-lg cursor-default">
-            {authorRole}
-          </p>
         </div>
       </div>
     </div>

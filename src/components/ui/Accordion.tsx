@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 interface AccordionProps {
   icon?: string;
@@ -7,6 +7,7 @@ interface AccordionProps {
   isOpen?: boolean;
   onToggle?: () => void;
   defaultOpen?: boolean;
+  onCloseAll?: () => void;
 }
 
 const Accordion: React.FC<AccordionProps> = ({
@@ -16,23 +17,67 @@ const Accordion: React.FC<AccordionProps> = ({
   isOpen: controlledIsOpen,
   onToggle,
   defaultOpen = false,
+  onCloseAll,
 }) => {
   const [internalIsOpen, setInternalIsOpen] = useState(defaultOpen);
+  const accordionRef = useRef<HTMLDivElement>(null);
 
   // Use controlled state if provided, otherwise use internal state
   const isOpen =
     controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
 
-  const toggleAccordion = () => {
-    if (onToggle) {
-      onToggle();
+  const scrollToAccordion = () => {
+    // Check if screen is small (mobile/tablet)
+    const isSmallScreen = window.innerWidth < 1024;
+
+    if (isSmallScreen && accordionRef.current) {
+      const element = accordionRef.current;
+      const elementTop = element.offsetTop;
+      const offsetPosition = elementTop - 80; // -20px padding (20px below top)
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const toggleAccordion = async () => {
+    // If opening accordion (currently closed)
+    if (!isOpen) {
+      // First close all accordions
+      if (onCloseAll) {
+        onCloseAll();
+      } else {
+        setInternalIsOpen(false);
+      }
+
+      // Wait 0.4 seconds
+      await new Promise((resolve) => setTimeout(resolve, 400));
+
+      // Then open this accordion
+      if (onToggle) {
+        onToggle();
+      } else {
+        setInternalIsOpen(true);
+      }
+
+      // Wait 0.5 seconds then scroll to header
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      scrollToAccordion();
     } else {
-      setInternalIsOpen(!internalIsOpen);
+      // If closing accordion (currently open)
+      if (onToggle) {
+        onToggle();
+      } else {
+        setInternalIsOpen(false);
+      }
     }
   };
 
   return (
     <div
+      ref={accordionRef}
       className={`w-full rounded-lg overflow-hidden mb-4 transition-all duration-300 ${
         isOpen
           ? "bg-gradient-horizontal p-[2px] relative z-10 transform translate-y-[-2px]"

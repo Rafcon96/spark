@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import CountUp from "react-countup";
 
 interface StatColumn {
-  value: string;
+  value: number;
   height?: number;
   content: string[];
   width?: number;
@@ -10,6 +11,8 @@ interface StatColumn {
 const StatsSection: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const statsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -19,6 +22,36 @@ const StatsSection: React.FC = () => {
     checkScreenSize();
     window.addEventListener("resize", checkScreenSize);
     return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
+  // Intersection Observer to detect when component is visible
+  useEffect(() => {
+    const currentElement = statsRef.current;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      {
+        rootMargin: "200px 0px", // Trigger when 200px of component is visible
+        threshold: 0.1,
+      }
+    );
+
+    if (currentElement) {
+      observer.observe(currentElement);
+    }
+
+    return () => {
+      if (currentElement) {
+        observer.unobserve(currentElement);
+      }
+      observer.disconnect();
+    };
   }, []);
 
   // Infinite animation cycle
@@ -32,25 +65,25 @@ const StatsSection: React.FC = () => {
 
   const statsData: StatColumn[] = [
     {
-      value: "25+",
+      value: 25,
       height: 220,
       width: 70,
       content: ["שנה של ניסיון משותף"],
     },
     {
-      value: "500+",
+      value: 500,
       height: 500,
       width: 90,
       content: ["הרצאות, הדרכות והכשרות "],
     },
     {
-      value: "400+",
+      value: 400,
       height: 400,
       width: 85,
       content: ["עיצובי מצגות, אתרים וסושיאל"],
     },
     {
-      value: "300+",
+      value: 300,
       height: 300,
       width: 80,
       content: ["תהליכי האסטרטגיה וסטוריטלינג"],
@@ -58,7 +91,10 @@ const StatsSection: React.FC = () => {
   ];
 
   return (
-    <div className="w-full flex flex-col lg:flex-row lg:items-end items-start justify-start gap-8 lg:gap-12 max-w-7xl mx-auto px-4">
+    <div
+      ref={statsRef}
+      className="w-full flex flex-col lg:flex-row lg:items-end items-start justify-start gap-8 lg:gap-12 max-w-7xl mx-auto px-4"
+    >
       {/* First Column - Text Content */}
       <div className="flex flex-col text-right lg:w-64 mb-8 lg:mb-0 lg:self-start">
         <h2 className="text-h2-desktop font-bold  mb-4">
@@ -127,7 +163,17 @@ const StatsSection: React.FC = () => {
             {/* Value - appears last on mobile, first on desktop */}
             <div className="text-center lg:text-center max-lg:text-right lg:order-1 max-lg:order-2 px-2">
               <span className="text-h3-responsive font-bold text-gray-900">
-                {stat.value}
+                {isVisible ? (
+                  <CountUp
+                    start={0}
+                    end={stat.value}
+                    suffix="+"
+                    duration={4}
+                    separator=","
+                  />
+                ) : (
+                  <span>0</span>
+                )}
               </span>
             </div>
           </div>

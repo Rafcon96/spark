@@ -49,7 +49,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
       }`}
     >
       {/* Stars Rating - Right aligned */}
-      <div className="flex justify-end mb-6 lg:mb-8">
+      <div className="flex justify-start mb-6 lg:mb-8">
         <div className="flex gap-1">{renderStars()}</div>
       </div>
 
@@ -61,16 +61,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
       </div>
 
       {/* Author Info - Right aligned */}
-      <div className="flex items-center justify-end gap-3 lg:gap-4">
-        <div className="text-right">
-          <h4 className="font-bold text-lg lg:text-xl text-gray-900 cursor-default">
-            {authorName}
-          </h4>
-          <p className="text-gray-600 text-base lg:text-lg cursor-default">
-            {authorRole}
-          </p>
-        </div>
-
+      <div className="flex items-center justify-between gap-3 lg:gap-4">
         {/* Avatar Circle */}
         <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-[#D5D7DA] flex items-center justify-center flex-shrink-0">
           {authorAvatar ? (
@@ -84,6 +75,14 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
               {getInitials(authorName)}
             </span>
           )}
+        </div>
+        <div className="text-right">
+          <h4 className="font-bold text-lg lg:text-xl text-gray-900 cursor-default">
+            {authorName}
+          </h4>
+          <p className="text-gray-600 text-base lg:text-lg cursor-default">
+            {authorRole}
+          </p>
         </div>
       </div>
     </div>

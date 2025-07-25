@@ -37,7 +37,7 @@ const StatsSection: React.FC = () => {
         });
       },
       {
-        rootMargin: "200px 0px", // Trigger when 200px of component is visible
+        rootMargin: "0px 0px", // Trigger when 200px of component is visible
         threshold: 0.1,
       }
     );
@@ -166,9 +166,10 @@ const StatsSection: React.FC = () => {
                 {isVisible ? (
                   <CountUp
                     start={0}
+                    delay={0.2}
                     end={stat.value}
                     suffix="+"
-                    duration={4}
+                    duration={3}
                     separator=","
                   />
                 ) : (

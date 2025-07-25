@@ -1,5 +1,4 @@
 import React from "react";
-import InfiniteMovingCards from "./ui/infinite-moving-cards";
 import ReviewSlider from "./ui/ReviewSlider";
 import StatsSection from "./ui/StatsSection";
 import Services from "./ui/Services";
@@ -7,6 +6,7 @@ import SuccessStories from "./ui/SuccessStories";
 import HowDoesItWork from "./ui/HowDoesItWork";
 import { reviews } from "../data/reviews";
 import CompaniesReviewsSection from "./ui/CompaniesReviewsSection";
+import LogoSection from "./ui/LogoSection";
 
 const LandingPage: React.FC = () => {
   const jumpToSection = (sectionId: string) => {
@@ -18,45 +18,53 @@ const LandingPage: React.FC = () => {
   return (
     <div className="w-full " dir="rtl">
       {/* Dark Hero Section */}
-      <section className=" w-full bg-black text-white flex flex-col lg:flex-row lg:items-start lg:justify-end lg:relative">
-        {/* Text Content - Top on mobile, absolute positioned on large screens */}
-        <div className="lg:px-10 px-2 text-right lg:absolute lg:z-10 lg:right-0 lg:top-3/8 lg:left-0 lg:shrink-0 justify-items-center lg:justify-items-start pt-10 ">
-          <div className="text-h1-responsive bg-gradient-horizontal bg-clip-text text-transparent w-fit m-0 cursor-default px-5">
-            <h1 className="cursor-default">מטרות גדולות?</h1>
-            <h1 className="cursor-default">תתחילו מסיפור.</h1>
-          </div>
-          <div className="py-2 mx-4">
-            <p className="lg:text-body-24 m-0 p- lg:max-w-[420px] max-w-[280px] text-body-18 cursor-default px-[5px] lg:px-[2px]">
-              יש לכם הזדמנות אמיתית:
-              <span
-                className="px-1 cursor-default"
-                style={{ fontWeight: "700" }}
-              >
-                למכור, לשווק, להוביל שינוי, לרתום הנהלה, לגייס השקעה.
-              </span>
-              וברגע הזה – הסיפור שלכם עושה את ההבדל.
-            </p>
-          </div>
-        </div>
 
-        {/* Image Container - Bottom on mobile, positioned on large screens */}
-        <div className="w-full flex justify-center lg:w-8/10 lg:shrink-0">
-          <img
-            src="/hero.svg"
-            alt="Hero illustration"
-            className="w-full h-auto"
-          />
+      <section className=" w-full bg-black text-white ">
+        {/* Text Content - Top on mobile, absolute positioned on large screens */}
+        <div className="w-full flex flex-col lg:flex-row lg:items-start lg:justify-end lg:relative">
+          <div className="lg:px-10 px-2 text-right lg:absolute lg:z-10 lg:right-0 lg:top-3/8 lg:left-0 lg:shrink-0 justify-items-center lg:justify-items-start pt-10 ">
+            <div className="text-h1-responsive bg-gradient-horizontal bg-clip-text text-transparent w-fit m-0 cursor-default px-5">
+              <h1 className="cursor-default">מטרות גדולות?</h1>
+              <h1 className="cursor-default">תתחילו מסיפור.</h1>
+            </div>
+            <div className="py-2 mx-4">
+              <p className="lg:text-body-24 m-0 p- lg:max-w-[420px] max-w-[280px] text-body-18 cursor-default px-[5px] lg:px-[2px]">
+                יש לכם הזדמנות אמיתית:
+                <span
+                  className="px-1 cursor-default"
+                  style={{ fontWeight: "700" }}
+                >
+                  למכור, לשווק, להוביל שינוי, לרתום הנהלה, לגייס השקעה.
+                </span>
+                וברגע הזה – הסיפור שלכם עושה את ההבדל.
+              </p>
+            </div>
+          </div>
+
+          {/* Image Container - Bottom on mobile, positioned on large screens */}
+          <div className="w-full flex justify-center lg:w-8/10 lg:shrink-0">
+            <img
+              src="/hero.svg"
+              alt="Hero illustration"
+              className="w-full h-auto"
+            />
+          </div>
         </div>
+        <section className="w-full bg-black">
+          <div className="mr-12">
+            <img src="/comp.svg" className="hidden lg:block" alt="comp" />
+            <img
+              src="/comp-mobile.svg"
+              className="block lg:hidden"
+              alt="comp"
+            />
+          </div>
+          <LogoSection />
+        </section>
       </section>
-      <section className="w-full bg-black">
-        <div className="mr-12">
-          <img src="/comp.svg" className="hidden lg:block" alt="comp" />
-          <img src="/comp-mobile.svg" className="block lg:hidden" alt="comp" />
-        </div>
-        <InfiniteMovingCards />
-      </section>
-      <section className="w-full flex flex-col items-center py-12 gap-4 min-h-[900px] bg-[url('/wellcom-bg.svg')] bg-cover bg-center">
-        <div className="w-[150px] flex justify-center text-body-14 border border-black rounded-sm cursor-default">
+
+      <section className="w-full flex flex-col items-center md:pt-24 pt-10 gap-4 min-h-[900px] bg-[url('/wellcom-bg.svg')] bg-cover bg-center">
+        <div className="w-[150px] flex justify-center text-body-14 border border-black rounded-sm cursor-default ">
           ברוכים הבאים ל- SPARK
         </div>
 

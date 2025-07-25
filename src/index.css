@@ -239,6 +239,46 @@
   .bg-gradient-vertical {
     background-image: var(--gradient-vertical);
   } 
+
+  .gradient-edge {
+    background: linear-gradient(90deg, #F7797D 12%, #C471ED 52.08%, #12C2E9 100%);
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(50%);
+    } 
+   
+  }
+  .marquee {
+    display: flex;
+    overflow: hidden;
+ 
+  }
+
+    .marquee-box {  
+    display: flex;
+    align-items: center;
+    width: 200%;
+    height: 100%;
+ 
+    overflow: hidden;
+    animation: marquee 50s linear infinite;
+  }
+  .maequee-item {
+    float: left;
+  }
+
+  @media (max-width: 1024px) {
+    .marquee-box {
+      animation: marquee 20s linear infinite;
+    }
+  }
+
+
 }
 
 

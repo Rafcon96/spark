@@ -278,6 +278,54 @@
     }
   }
 
+  @keyframes sparkle-border {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
+
+  .sparkle-hover {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .sparkle-hover:hover {
+    background: linear-gradient(45deg, #12C2E9, #C471ED, #F7797D, #12C2E9, #C471ED, #F7797D);
+    background-size: 300% 300%;
+    animation: sparkle-border 3s ease-in-out infinite;
+    padding: 2px;
+    border-radius: 8px;
+  }
+
+  .sparkle-hover:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.8) 50%, transparent 60%);
+    background-size: 200% 200%;
+    animation: sparkle-shine 2s linear infinite;
+    border-radius: 8px;
+    pointer-events: none;
+  }
+
+  @keyframes sparkle-shine {
+    0% {
+      transform: translateX(-100%) translateY(-100%);
+    }
+    100% {
+      transform: translateX(100%) translateY(100%);
+    }
+  }
+
 
 }
 

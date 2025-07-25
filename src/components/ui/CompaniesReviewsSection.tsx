@@ -11,7 +11,7 @@ const CompaniesReviewsSection: React.FC<CompaniesReviewsSectionProps> = ({
   fixedHeight = true,
 }) => {
   return (
-    <CompaniesReviews fixedHeight={fixedHeight}>
+    <CompaniesReviews>
       {reviews.map((review) => (
         <ReviewCard
           key={review.id}

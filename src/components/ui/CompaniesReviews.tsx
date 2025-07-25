@@ -2,13 +2,9 @@ import React from "react";
 
 interface CompaniesReviewsProps {
   children: React.ReactNode[];
-  fixedHeight?: boolean; // Default true for fixed height, false for content-based height
 }
 
-const CompaniesReviews: React.FC<CompaniesReviewsProps> = ({
-  children,
-  fixedHeight = true,
-}) => {
+const CompaniesReviews: React.FC<CompaniesReviewsProps> = ({ children }) => {
   // Take only first 9 items for the grid
   const gridItems = Array.isArray(children) ? children.slice(0, 9) : [children];
 
@@ -30,10 +26,7 @@ const CompaniesReviews: React.FC<CompaniesReviewsProps> = ({
           {gridItems.map((child, index) => (
             <div
               key={index}
-              className={`
-                ${fixedHeight ? "h-fit" : "h-fit"}
-                w-full mb-2 break-inside-avoid transition-all duration-300 hover:scale-102 hover:z-20
-              `}
+              className={`w-full mb-2 break-inside-avoid transition-all duration-300 hover:scale-102 hover:z-20`}
             >
               <div className="w-full h-full">{child}</div>
             </div>

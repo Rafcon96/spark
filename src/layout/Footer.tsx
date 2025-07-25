@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
   return (
     <footer
       dir="rtl"
-      className="w-full bg-gray-900 text-white z-100 -mt-[150px]"
+      className="w-full bg-gray-900 text-white z-100 lg:-mt-[190px] -mt-[333px] "
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex justify-center text-h3-mobile lg:text-h3-desktop px-6 pt-12">

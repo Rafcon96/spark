@@ -7,6 +7,7 @@ import HowDoesItWork from "./ui/HowDoesItWork";
 import { reviews } from "../data/reviews";
 import CompaniesReviewsSection from "./ui/CompaniesReviewsSection";
 import LogoSection from "./ui/LogoSection";
+// import Testimonials from "./ui/Testimonials";
 
 const LandingPage: React.FC = () => {
   const jumpToSection = (sectionId: string) => {
@@ -164,7 +165,8 @@ const LandingPage: React.FC = () => {
         <HowDoesItWork />
       </section>
       <section>
-        <CompaniesReviewsSection />
+        {/* <Testimonials /> */}
+        <CompaniesReviewsSection fixedHeight={false} />
       </section>
     </div>
   );

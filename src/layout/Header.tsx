@@ -45,8 +45,57 @@ const Header: React.FC = () => {
               תהליך
             </a>
           </nav>
+          <div className="md:hidden flex items-center gap-4 justify-between w-full">
+            <div className="flex-shrink-0 justify-self-start flex items-center gap-4">
+              <button
+                onClick={() => setIsMobileMenuOpen(true)}
+                className="text-white hover:text-gray-300 p-2"
+              >
+                <svg
+                  width="36"
+                  height="36"
+                  viewBox="0 0 36 36"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16 11H26"
+                    stroke="white"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M10 18H26"
+                    stroke="white"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M10 25H20"
+                    stroke="white"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <div className="flex-shrink-0 ">
+                <img src={"./spark-header.svg"} alt="logo" />
+              </div>
+            </div>
+            <div className="p-[2px] bg-gradient-horizontal rounded-lg shadow-[0_8px_32px_rgba(247,121,125,0.3),0_8px_32px_rgba(196,113,237,0.3),0_8px_32px_rgba(18,194,233,0.3),0_4px_16px_rgba(18,194,233,0.2)] hover:shadow-[0_12px_48px_rgba(247,121,125,0.4),0_12px_48px_rgba(196,113,237,0.4),0_12px_48px_rgba(18,194,233,0.4),0_6px_20px_rgba(18,194,233,0.3)] transition-all duration-300 hover:scale-105 active:scale-95">
+              <button
+                onClick={() => jumpToSection("contact")}
+                className="bg-black text-white text-body-18 font-bold px-2 py-1 rounded-lg w-full h-full cursor-pointer hover:bg-gray-900 active:bg-gray-800 transition-all duration-200 transform hover:translate-y-[-1px] active:translate-y-[1px]"
+              >
+                בואו נדבר
+              </button>
+            </div>
+          </div>
           {/* Logo */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 hidden md:flex">
             <img src={"./spark-header.svg"} alt="logo" />
           </div>
 
@@ -63,26 +112,6 @@ const Header: React.FC = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsMobileMenuOpen(true)}
-              className="text-white hover:text-gray-300 p-2"
-            >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            </button>
-          </div>
         </div>
       </div>
 

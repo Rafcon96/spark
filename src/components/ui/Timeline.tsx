@@ -60,7 +60,7 @@ const Timeline: React.FC<TimelineProps> = ({ items }) => {
                 className={`relative flex items-start gap-8 lg:gap-12 transition-all duration-700 ${
                   visibleItems.includes(item.id)
                     ? "opacity-100 translate-y-0"
-                    : "opacity-30 translate-y-4"
+                    : "opacity-80 translate-y-4"
                 }`}
               >
                 {/* Timeline Point */}
@@ -82,7 +82,7 @@ const Timeline: React.FC<TimelineProps> = ({ items }) => {
                 {/* Content */}
                 <div className="flex-1 pb-8">
                   {/* Heading */}
-                  <h3 className="text-body-24 font-bold text-gray-900 my-5 cursor-default">
+                  <h3 className="text-body-24 font-bold text-gray-900 my-[18px] cursor-default">
                     {item.heading}
                   </h3>
 

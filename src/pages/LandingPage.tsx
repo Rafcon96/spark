@@ -1,13 +1,13 @@
 import React from "react";
-import ReviewSlider from "./ui/ReviewSlider";
-import StatsSection from "./ui/StatsSection";
-import Services from "./ui/Services";
-import SuccessStories from "./ui/SuccessStories";
-import HowDoesItWork from "./ui/HowDoesItWork";
+import ReviewSlider from "../components/ui/ReviewSlider";
+import StatsSection from "../components/ui/StatsSection";
+import Services from "../components/ui/Services";
+import SuccessStories from "../components/ui/SuccessStories";
+import HowDoesItWork from "../components/ui/HowDoesItWork";
 import { reviews } from "../data/reviews";
-import CompaniesReviewsSection from "./ui/CompaniesReviewsSection";
-import LogoSection from "./ui/LogoSection";
-import { FlipWords } from "./ui/FlipWords";
+import CompaniesReviewsSection from "../components/ui/CompaniesReviewsSection";
+import LogoSection from "../components/ui/LogoSection";
+import { FlipWords } from "../components/ui/FlipWords";
 // import Testimonials from "./ui/Testimonials";
 
 const LandingPage: React.FC = () => {

@@ -38,7 +38,7 @@ const Services: React.FC = () => {
             icon="/wellcom-icon1.svg"
             heading="אסטרטגיה "
             content={
-              <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 bg-white pr-4 lg:pr-6">
+              <div className="flex flex-col md:flex-row gap-6 md:gap-8 bg-white p-4 lg:p-6">
                 {/* Text Section - 66% on large screens */}
                 <div className="flex-1 lg:w-2/3 pt-2 lg:pt-4">
                   {/* Semi Header */}

@@ -7,6 +7,7 @@ import HowDoesItWork from "./ui/HowDoesItWork";
 import { reviews } from "../data/reviews";
 import CompaniesReviewsSection from "./ui/CompaniesReviewsSection";
 import LogoSection from "./ui/LogoSection";
+import { FlipWords } from "./ui/FlipWords";
 // import Testimonials from "./ui/Testimonials";
 
 const LandingPage: React.FC = () => {
@@ -30,13 +31,25 @@ const LandingPage: React.FC = () => {
             </div>
             <div className="py-2 mx-4">
               <p className="lg:text-body-24 m-0 p- lg:max-w-[420px] max-w-[280px] text-body-18 cursor-default px-[5px] lg:px-[2px]">
-                יש לכם הזדמנות אמיתית:
+                יש לכם הזדמנות:
                 <span
-                  className="px-1 cursor-default"
+                  className="px-1 cursor-default "
                   style={{ fontWeight: "700" }}
                 >
-                  למכור, לשווק, להוביל שינוי, לרתום הנהלה, לגייס השקעה.
+                  <FlipWords
+                    words={[
+                      "למכור",
+                      "לשווק",
+                      "להוביל שינוי",
+                      "לרתום הנהלה",
+                      "לגייס השקעה",
+                    ]}
+                    duration={2000}
+                    className="text-caption-lg font-bold text-white cursor-default"
+                  />
+                  {/* למכור, לשווק, להוביל שינוי, לרתום הנהלה, לגייס השקעה. */}
                 </span>
+                <br />
                 וברגע הזה – הסיפור שלכם עושה את ההבדל.
               </p>
             </div>

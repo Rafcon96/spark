@@ -82,7 +82,7 @@ const Timeline: React.FC<TimelineProps> = ({ items }) => {
                 {/* Content */}
                 <div className="flex-1 pb-8">
                   {/* Heading */}
-                  <h3 className="text-body-24 font-bold text-gray-900 mb-4 cursor-default">
+                  <h3 className="text-body-24 font-bold text-gray-900 my-5 cursor-default">
                     {item.heading}
                   </h3>
 

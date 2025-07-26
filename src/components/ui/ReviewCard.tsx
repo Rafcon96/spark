@@ -61,7 +61,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
       </div>
 
       {/* Author Info - Right aligned */}
-      <div className="flex items-center justify-between gap-3 lg:gap-4">
+      <div className="flex items-center justify-start gap-3 lg:gap-4">
         {/* Avatar Circle */}
         <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-[#D5D7DA] flex items-center justify-center flex-shrink-0">
           {authorAvatar ? (

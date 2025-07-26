@@ -158,10 +158,10 @@ const LandingPage: React.FC = () => {
       <section id="capabilities" className="w-full  py-16 lg:px-16 px-1">
         <Services />
       </section>
-      <section id="works">
+      <section id="works" className="pt-5">
         <SuccessStories />
       </section>
-      <section id="process">
+      <section id="process" className="pt-8">
         <HowDoesItWork />
       </section>
       <section>

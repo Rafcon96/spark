@@ -11,18 +11,17 @@ const CompaniesReviewsSection: React.FC<CompaniesReviewsSectionProps> = ({
   fixedHeight = true,
 }) => {
   return (
-    <CompaniesReviews>
-      {reviews.map((review) => (
-        <motion.div
-          key={review.id}
-          initial={{ y: -250, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ ease: "easeOut", duration: 2 }}
-          className="w-full h-fit"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          viewport={{ once: true }}
-        >
+    <motion.div
+      initial={{ y: -250, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ ease: "easeOut", duration: 2 }}
+      className="w-full h-fit"
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      viewport={{ once: true }}
+    >
+      <CompaniesReviews>
+        {reviews.map((review) => (
           <ReviewCard
             key={review.id}
             id={review.id}
@@ -33,9 +32,9 @@ const CompaniesReviewsSection: React.FC<CompaniesReviewsSectionProps> = ({
             authorAvatar={review.authorAvatar}
             fixedHeight={fixedHeight}
           />
-        </motion.div>
-      ))}
-    </CompaniesReviews>
+        ))}
+      </CompaniesReviews>
+    </motion.div>
   );
 };
 

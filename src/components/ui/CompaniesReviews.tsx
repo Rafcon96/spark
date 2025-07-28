@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 interface CompaniesReviewsProps {
   children: React.ReactNode[];
@@ -23,14 +24,24 @@ const CompaniesReviews: React.FC<CompaniesReviewsProps> = ({ children }) => {
       <div className="max-w-7xl mx-auto relative    z-10">
         {/* Masonry-style Grid */}
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-2">
-          {gridItems.map((child, index) => (
-            <div
-              key={index}
-              className={`w-full mb-2 break-inside-avoid transition-all duration-300 hover:scale-102 hover:z-20`}
-            >
-              <div className="w-full h-full">{child}</div>
-            </div>
-          ))}
+          <motion.div
+            initial={{ y: 250, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ ease: "easeOut", duration: 2 }}
+            className="w-full h-fit"
+            // whileHover={{ scale: 1.02 }}
+            // whileTap={{ scale: 0.98 }}
+            // viewport={{ once: true }}
+          >
+            {gridItems.map((child, index) => (
+              <div
+                key={index}
+                className={`w-full mb-2 break-inside-avoid transition-all duration-300 hover:scale-102 hover:z-20`}
+              >
+                <div className="w-full h-full">{child}</div>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </div>

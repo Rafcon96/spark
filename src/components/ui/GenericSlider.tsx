@@ -25,9 +25,9 @@ const getSlideStyles = (itemsPerView: number) => ({
 
 const rightArrowStyles = {
   fontSize: "16px",
-  color: "#333",
+  color: "white",
   cursor: "pointer",
-  backgroundColor: "rgba(255, 255, 255, 0.9)",
+  backgroundColor: "black",
   borderRadius: "4px",
   width: "32px",
   height: "32px",
@@ -41,9 +41,9 @@ const rightArrowStyles = {
 
 const leftArrowStyles = {
   fontSize: "16px",
-  color: "#333",
+  color: "white",
   cursor: "pointer",
-  backgroundColor: "rgba(255, 255, 255, 0.9)",
+  backgroundColor: "black",
   borderRadius: "4px",
   width: "32px",
   height: "32px",
@@ -53,6 +53,7 @@ const leftArrowStyles = {
   boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
   transition: "all 0.3s ease",
   userSelect: "none" as const,
+  // backgroundColor: "black",
 };
 
 const navigationContainerStyles = {

@@ -8,7 +8,7 @@ function Welcome() {
     }
   };
   return (
-    <section className="w-screen section-spacing bg-[url('/wellcom-bg.svg')] flex flex-col items-center  sm:layout-grid h-[calc(100%+600px)]  bg-cover bg-center bg-repeat bg-fixed px-6  sm:px-0">
+    <section className="w-screen section-spacing bg-[url('/wellcom-bg.svg')] flex flex-col items-center  sm:layout-grid curser-defualt  bg-cover bg-center bg-repeat bg-fixed px-6  sm:px-0">
       <div className="container-custom flex flex-col items-center gap-8 md:gap-12 [grid-area:1/11/1/4]">
         <div className="w-fit flex justify-center  border border-black rounded-sm cursor-default py-1 px-2 text-[12px] leading-[16px] tracking-[4%] text-center font-medium font-[Poppins]">
           ברוכים הבאים ל- SPARK

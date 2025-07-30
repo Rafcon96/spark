@@ -47,15 +47,6 @@ function Hero() {
                 וברגע הזה – הסיפור שלכם עושה את ההבדל.
               </p>
             </div>
-
-            {/* Image Container - Bottom on mobile, positioned on large screens */}
-            {/* <div className="w-full flex justify-center lg:w-8/10 lg:shrink-0">
-        <img
-          src="/hero.svg"
-          alt="Hero illustration"
-          className="w-full h-auto"
-        />
-      </div> */}
           </div>
         </div>
       </div>

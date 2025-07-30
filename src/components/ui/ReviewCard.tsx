@@ -1,90 +1,81 @@
 import React from "react";
 
-export interface ReviewCardProps {
+// Type 1: Company Review
+export type CompanyReview = {
   id: number;
-  rating: number; // 1-5 stars
+  rating: number;
+  reviewText: string;
+  companyName: string;
+  typeWC: "company";
+};
+
+// Type 2: Worker Review
+export type WorkerReview = {
+  id: number;
+  rating: number;
   reviewText: string;
   authorName: string;
   authorRole: string;
-  authorAvatar?: string; // URL to avatar image, if not provided will show first letter
-  fixedHeight?: boolean; // Default true for fixed height, false for content-based height
-}
+  authorAvatar?: string;
+  typeWC: "worker";
+};
 
-const ReviewCard: React.FC<ReviewCardProps> = ({
-  rating,
-  reviewText,
-  authorName,
-  authorRole,
-  authorAvatar,
-  fixedHeight = true,
-}) => {
-  const renderStars = () => {
-    const stars = [];
-    for (let i = 1; i <= 5; i++) {
-      stars.push(
+type ReviewCardProps = CompanyReview | WorkerReview;
+
+const renderStars = (count: number) => {
+  return (
+    <div className="flex">
+      {[...Array(5)].map((_, i) => (
         <svg
           key={i}
-          className={`w-5 h-5 ${
-            i <= rating ? "text-yellow-400" : "text-gray-300"
+          className={`w-4 h-4 ${
+            i < count ? "text-yellow-400" : "text-gray-300"
           }`}
           fill="currentColor"
           viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
         >
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.945h4.148c.969 0 1.371 1.24.588 1.81l-3.36 2.44 1.287 3.946c.3.92-.755 1.688-1.54 1.117l-3.36-2.44-3.36 2.44c-.784.57-1.838-.197-1.539-1.118l1.286-3.945-3.36-2.44c-.783-.57-.38-1.81.588-1.81h4.149L9.05 2.927z" />
         </svg>
-      );
-    }
-    return stars;
-  };
+      ))}
+    </div>
+  );
+};
 
-  const getInitials = (name: string) => {
-    return name.charAt(0).toUpperCase();
-  };
+const ReviewCard: React.FC<ReviewCardProps> = (props) => {
+  const cardWidth = props.typeWC === "worker" ? "w-[392px]" : "w-[360px]";
 
   return (
     <div
-      className={`bg-[#E9EAEB] rounded-lg shadow-sm w-full flex-shrink-0 flex flex-col justify-between ${
-        fixedHeight ? "h-[350px] lg:h-[400px] p-4 lg:p-6" : "h-fit p-6 lg:p-8"
-      }`}
+      className={`bg-white overflow-hidden  border-[#E9EAEB] shadow-sm rounded-xl p-8 m-[2px] gap-6 ${cardWidth} flex flex-col flex-shrink-0 marquee-item`}
     >
-      {/* Stars Rating - Right aligned */}
-      <div className="flex justify-start mb-6 lg:mb-8">
-        <div className="flex gap-1">{renderStars()}</div>
-      </div>
+      <div>{renderStars(props.rating)}</div>
+      <p className="text-gray-700 text-sm">{props.reviewText}</p>
 
-      {/* Review Text - Right aligned */}
-      <div className="mb-6 lg:mb-8 text-right flex-1">
-        <p className="text-lg lg:text-xl xl:text-2xl leading-relaxed text-gray-800 font-normal cursor-default">
-          {reviewText}
-        </p>
-      </div>
-
-      {/* Author Info - Right aligned */}
-      <div className="flex items-center justify-start gap-3 lg:gap-4">
-        {/* Avatar Circle */}
-        <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-[#D5D7DA] flex items-center justify-center flex-shrink-0">
-          {authorAvatar ? (
+      {props.typeWC === "company" ? (
+        <div className="text-right text-sm text-gray-500 font-medium">
+          {props.companyName}
+        </div>
+      ) : (
+        <div className="flex items-center mt-3 space-x-3">
+          {props.authorAvatar ? (
             <img
-              src={authorAvatar}
-              alt={authorName}
-              className="w-full h-full rounded-full object-cover"
+              src={props.authorAvatar}
+              alt={props.authorName}
+              className="w-10 h-10 rounded-full"
             />
           ) : (
-            <span className="text-gray-700 font-semibold text-lg lg:text-xl">
-              {getInitials(authorName)}
-            </span>
+            <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-sm text-gray-500">
+              {props.authorName[0]}
+            </div>
           )}
+          <div>
+            <div className="text-sm font-semibold text-gray-800">
+              {props.authorName}
+            </div>
+            <div className="text-xs text-gray-500">{props.authorRole}</div>
+          </div>
         </div>
-        <div className="text-right">
-          <h4 className="font-bold text-lg lg:text-xl text-gray-900 cursor-default">
-            {authorName}
-          </h4>
-          <p className="text-gray-600 text-base lg:text-lg cursor-default">
-            {authorRole}
-          </p>
-        </div>
-      </div>
+      )}
     </div>
   );
 };

@@ -761,7 +761,7 @@
   }
   .marquee {
     display: flex;
-    overflow: hidden;
+    overflow: hidden !important;
   }
 
   .marquee-box {
@@ -773,7 +773,7 @@
     overflow: hidden;
     animation: marquee 60s linear infinite;
   }
-  .maequee-item {
+  .marquee-item {
     float: left;
   }
 

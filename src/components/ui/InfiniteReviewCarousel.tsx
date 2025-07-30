@@ -147,6 +147,7 @@ const InfiniteReviewCarousel: React.FC<InfiniteReviewCarouselProps> = ({
             authorName={review.authorName}
             authorRole={review.authorRole}
             authorAvatar={review.authorAvatar}
+            typeWC="worker"
           />
         </div>
       ))}

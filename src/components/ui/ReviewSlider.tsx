@@ -1,18 +1,9 @@
 import React from "react";
 import GenericSlider from "./GenericSlider";
-import ReviewCard from "./ReviewCard";
-
-interface Review {
-  id: number;
-  rating: number;
-  reviewText: string;
-  authorName: string;
-  authorRole: string;
-  authorAvatar?: string;
-}
+import ReviewCard, { type WorkerReview } from "./ReviewCard";
 
 interface ReviewSliderProps {
-  reviews: Review[];
+  reviews: WorkerReview[];
   autoPlay?: boolean;
   autoPlayInterval?: number;
 }
@@ -22,16 +13,7 @@ const ReviewSlider: React.FC<ReviewSliderProps> = ({
   autoPlay = false,
   autoPlayInterval = 3000,
 }) => {
-  const renderReviewCard = (review: Review) => (
-    <ReviewCard
-      id={review.id}
-      rating={review.rating}
-      reviewText={review.reviewText}
-      authorName={review.authorName}
-      authorRole={review.authorRole}
-      authorAvatar={review.authorAvatar}
-    />
-  );
+  const renderReviewCard = (review: WorkerReview) => <ReviewCard {...review} />;
 
   return (
     <GenericSlider

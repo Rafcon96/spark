@@ -1,84 +1,186 @@
-import type { ReviewCardProps } from "../components/ui/ReviewCard";
+import {type WorkerReview, type CompanyReview } from "../components/ui/ReviewCard";
 
-export const reviews : ReviewCardProps[] = [
-    {
-      id: 1,
-      rating: 5,
-      reviewText:
-        "הצוות של SPARK עזר לנו לבנות סיפור מכירות שהוביל לעלייה של 40% במכירות. התוצאות מדברות בעד עצמן.",
-      authorName: "דני כהן",
-      authorRole: 'מנכ"ל, טכנולוגיות חדשניות',
-    },
-    {
-      id: 2,
-      rating: 5,
-      reviewText:
-        "הפרזנטציה שבנינו יחד גייסה 2 מיליון דולר בסיבוב השקעה. לא יכולנו לקוות לתוצאה טובה יותר.",
-      authorName: "שרה לוי",
-      authorRole: "מייסדת שותפה, סטארטאפ טק",
-    },
-    {
-      id: 3,
-      rating: 5,
-      reviewText:
-        "מהרגע הראשון הבנו שזה משהו אחר. הסיפור שבנינו שינה את כל האסטרטגיה השיווקית שלנו.",
-      authorName: "מיכאל רוזן",
-      authorRole: 'סמנכ"ל שיווק, חברת ביטק',
-    },
-    {
-      id: 4,
-      rating: 5,
-      reviewText:
-        "העבודה עם SPARK הייתה נקודת מפנה בחברה שלנו. הצלחנו לשכנע משקיעים שחשבנו שלעולם לא נגיע אליהם.",
-      authorName: "רחל אברהם",
-      authorRole: "מנהלת פיתוח עסקי",
-    },
-    {
-      id: 5,
-      rating: 5,
-      reviewText:
-        "הגישה המקצועית והיצירתית יחד יצרו תוצאה מעל ומעבר לציפיות. ממליץ בחום לכל מי שרוצה להצליח.",
-      authorName: "יוסי גולדברג",
-      authorRole: 'מנכ"ל, חברת פינטק',
-    },
-    {
-      id: 6,
-      rating: 5,
-      reviewText:
-        "הסיפור שיצרנו הפך להיות הכלי החזק ביותר שלנו למשיכת משקיעים. תוך חודש גייסנו 5 מיליון שקל.",
-      authorName: "אבי שמיר",
-      authorRole: "מייסד, חברת אנרגיה מתחדשת",
-    },
-    {
-      id: 7,
-      rating: 5,
-      reviewText:
-        "הצגנו את הסיפור החדש בכנס בינלאומי וקיבלנו 50 פניות חדשות. זה שינה את כל המשחק עבורנו.",
-      authorName: "נועה ברק",
-      authorRole: "מנהלת שיווק, חברת תוכנה",
-    },
-    {
-      id: 8,
-      rating: 5,
-      reviewText:
-        "לא האמנו שאפשר לשנות כל כך את התפיסה של הלקוחות שלנו. המכירות זינקו ב-60% תוך שלושה חודשים.",
-      authorName: "רונן דוד",
-      authorRole: "מנהל מכירות, חברת B2B",
-    },
-    {
-      id: 9,
-      rating: 5,
-      reviewText:
-        "SPARK הבינו את הסיפור שלנו טוב יותר מאיתנו. התוצאה הייתה מדהימה - לקוחות חדשים מגיעים אלינו.",
-      authorName: "תמר חן",
-      authorRole: 'מנכ"לית, סטארטאפ פינטק',
-    },
-    {
-      id: 10,
-      rating: 5,
-      reviewText:
-        "הפרזנטציה החדשה הביאה אותנו לחתום על העסקה הגדולה ביותר בהיסטוריה של החברה - 10 מיליון דולר.",
-      authorName: "עומר כץ",
-      authorRole: "מנהל עסקי, חברת סייבר",
-    },
-  ]
+export const companyReviews: CompanyReview[] = [
+  {
+    id: 1,
+    rating: 5,
+    reviewText: "כל מה שאני צריכה עובד בצורה מושלמת ובזמן מהיר",
+    companyName: "חברה מספר 1",
+    typeWC: "company",
+  },
+  {
+    id: 2,
+    rating: 5,
+    reviewText: "כל מה שאני צריכה עובד בצורה מושלמת ובזמן מהיר",
+    companyName: "חברה מספר 2",
+    typeWC: "company",
+  },
+  {
+    id: 3,
+    rating: 5,
+    reviewText: "כל מה שאני צריכה עובד בצורה מושלמת ובזמן מהיר",
+    companyName: "חברה מספר 3",
+    typeWC: "company",
+  },
+  {
+    id: 4,
+    rating: 5,
+    reviewText: "כל מה שאני צריכה עובד בצורה מושלמת ובזמן מהיר",
+    companyName: "חברה מספר 4",
+    typeWC: "company",
+  },
+  {
+    id: 5,
+    rating: 5,
+    reviewText: "כל מה שאני צריכה עובד בצורה מושלמת ובזמן מהיר",
+    companyName: "חברה מספר 5",
+    typeWC: "company",
+  },
+  {
+    id: 6,
+    rating: 5,
+    reviewText: "כל מה שאני צריכה עובד בצורה מושלמת ובזמן מהיר",
+    companyName: "חברה מספר 6",
+    typeWC: "company",
+  },
+  {
+    id: 7,
+    rating: 5,
+    reviewText: "כל מה שאני צריכה עובד בצורה מושלמת ובזמן מהיר",
+    companyName: "חברה מספר 7",
+    typeWC: "company",
+  },
+  {
+    id: 8,
+    rating: 5,
+    reviewText: "כל מה שאני צריכה עובד בצורה מושלמת ובזמן מהיר",
+    companyName: "חברה מספר 8",
+    typeWC: "company",
+  },
+  {
+    id: 9,
+    rating: 5,
+    reviewText: "כל מה שאני צריכה עובד בצורה מושלמת ובזמן מהיר",
+    companyName: "חברה מספר 9",
+    typeWC: "company",
+  },
+  {
+    id: 10,
+    rating: 5,
+    reviewText: "כל מה שאני צריכה עובד בצורה מושלמת ובזמן מהיר",
+    companyName: "חברה מספר 10",
+    typeWC: "company",
+  },
+  
+];
+
+export const workerReviews: WorkerReview[] = [
+  {
+    id: 1,
+    rating: 5,
+    reviewText: "כל מה שאני צריכה עובד בצורה מושלמת ובזמן מהיר",
+    typeWC: "worker",
+    authorName: "יוסי בן יוסי",
+    authorRole: "מנהל חברה",
+    authorAvatar: "https://via.placeholder.com/150",
+  },
+  {
+    id: 2,
+    rating: 5,
+    reviewText: "כל מה שאני צריכה עובד בצורה מושלמת ובזמן מהיר",
+    typeWC: "worker",
+    authorName: "יוסי בן יוסי",
+    authorRole: "מנהל חברה",
+    authorAvatar: "https://via.placeholder.com/150",
+  },
+  {
+    id: 3,
+    rating: 5,
+    reviewText: "כל מה שאני צריכה עובד בצורה מושלמת ובזמן מהיר",
+    typeWC: "worker",
+    authorName: "יוסי בן יוסי",
+    authorRole: "מנהל חברה",
+    authorAvatar: "https://via.placeholder.com/150",
+  },
+  {
+    id: 4,
+    rating: 5,
+    reviewText: "כל מה שאני צריכה עובד בצורה מושלמת ובזמן מהיר",
+    typeWC: "worker",
+    authorName: "יוסי בן יוסי",
+    authorRole: "מנהל חברה",
+    authorAvatar: "https://via.placeholder.com/150",
+  },
+  {
+    id: 5,
+    rating: 5,
+    reviewText: "כל מה שאני צריכה עובד בצורה מושלמת ובזמן מהיר",
+    typeWC: "worker",
+    authorName: "יוסי בן יוסי",
+    authorRole: "מנהל חברה",
+    authorAvatar: "https://via.placeholder.com/150",
+  },
+  {
+    id: 6,
+    rating: 5,
+    reviewText: "כל מה שאני צריכה עובד בצורה מושלמת ובזמן מהיר",
+    typeWC: "worker",
+    authorName: "יוסי בן יוסי",
+    authorRole: "מנהל חברה",
+    authorAvatar: "https://via.placeholder.com/150",
+  },
+  {
+    id: 7,
+    rating: 5,
+    reviewText: "כל מה שאני צריכה עובד בצורה מושלמת ובזמן מהיר",
+    typeWC: "worker",
+    authorName: "יוסי בן יוסי",
+    authorRole: "מנהל חברה",
+    authorAvatar: "https://via.placeholder.com/150",
+  },
+  {
+    id: 8,
+    rating: 5,
+    reviewText: "כל מה שאני צריכה עובד בצורה מושלמת ובזמן מהיר",
+    typeWC: "worker",
+    authorName: "יוסי בן יוסי",
+    authorRole: "מנהל חברה",
+    authorAvatar: "https://via.placeholder.com/150",
+  },
+  {
+    id: 9,
+    rating: 5,
+    reviewText: "כל מה שאני צריכה עובד בצורה מושלמת ובזמן מהיר",
+    typeWC: "worker",
+    authorName: "יוסי בן יוסי",
+    authorRole: "מנהל חברה",
+    authorAvatar: "https://via.placeholder.com/150",
+  },
+  {
+    id: 10,
+    rating: 5,
+    reviewText: "כל מה שאני צריכה עובד בצורה מושלמת ובזמן מהיר",
+    typeWC: "worker",
+    authorName: "יוסי בן יוסי",
+    authorRole: "מנהל חברה",
+    authorAvatar: "https://via.placeholder.com/150",
+  },
+  {
+    id: 11,
+    rating: 5,
+    reviewText: "כל מה שאני צריכה עובד בצורה מושלמת ובזמן מהיר",
+    typeWC: "worker",
+    authorName: "יוסי בן יוסי",
+    authorRole: "מנהל חברה",
+    authorAvatar: "https://via.placeholder.com/150",
+  },
+  {
+    id: 12,
+    rating: 5,
+    reviewText: "כל מה שאני צריכה עובד בצורה מושלמת ובזמן מהיר",
+    typeWC: "worker",
+    authorName: "יוסי בן יוסי",
+    authorRole: "מנהל חברה",
+    authorAvatar: "https://via.placeholder.com/150",
+  },
+];

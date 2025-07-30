@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
       dir="rtl"
       className="w-full bg-gray-900 text-white z-100 lg:-mt-[190px] -mt-[333px] "
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="container-custom py-12">
         <div className="flex justify-center text-h3-mobile lg:text-h3-desktop px-6 pt-12">
           כשהמטרה ברורה -
         </div>
@@ -25,7 +25,10 @@ const Footer: React.FC = () => {
         <div className="flex justify-center pb-14">
           <img src={"./spark.svg"} alt="logo" />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8" dir={"ltr"}>
+        <div
+          className="grid-custom grid-cols-custom-1 md:grid-cols-custom-4"
+          dir={"ltr"}
+        >
           <div className="flex justify-center">
             <div className="w-[150px]  cursor-default"></div>
             {/* <img src={"./spark.svg"} alt="logo" /> */}

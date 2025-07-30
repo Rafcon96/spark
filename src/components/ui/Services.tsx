@@ -16,8 +16,8 @@ const Services: React.FC = () => {
   };
 
   return (
-    <div className="w-full bg-[#FAFAFA] py-16">
-      <div className="max-w-7xl mx-auto px-4">
+    <div className="w-full bg-[#FAFAFA] section-spacing">
+      <div className="container-custom">
         {/* Text Section */}
         <div className="flex flex-col items-center justify-center text-center">
           {/* Responsive H2 Heading */}

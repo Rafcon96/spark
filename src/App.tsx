@@ -7,7 +7,7 @@ import ThankYou from "./pages/ThankYou";
 function App() {
   return (
     <Router>
-      <div className="min-h-screen w-full flex flex-col">
+      <div className="min-h-screen w-full flex flex-col ">
         <Routes>
           {/* Home page route */}
           <Route
@@ -15,7 +15,7 @@ function App() {
             element={
               <>
                 <Header />
-                <main className="flex-grow">
+                <main className="flex-grow ">
                   <LandingPage />
                 </main>
                 <Footer />

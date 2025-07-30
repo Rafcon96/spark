@@ -1,14 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@100..900&display=swap');
 
-@import "tailwindcss";
+@import 'tailwindcss';
 /* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@100..900&display=swap'); */
 
 @layer base {
   :root {
     /* === Fonts === */
-    --font-noto: "Noto Sans Hebrew", sans-serif;
-    --font-poppins: "Poppins", sans-serif;
-    --font-playpen: "Playpen Sans Hebrew", cursive;
+    --font-noto: 'Noto Sans Hebrew', sans-serif;
+    --font-poppins: 'Poppins', sans-serif;
+    --font-playpen: 'Playpen Sans Hebrew', cursive;
+
+    /* === Grid & Layout === */
+    --container-max-width: 1200px;
+    --container-padding-mobile: 16px;
+    --container-padding-tablet: 24px;
+    --container-padding-desktop: 32px;
+    
+    /* Section Spacing */
+    --section-spacing-mobile: 60px;
+    --section-spacing-tablet: 80px;
+    --section-spacing-desktop: 120px;
+    
+    /* Component Spacing */
+    --component-spacing-xs: 8px;
+    --component-spacing-sm: 16px;
+    --component-spacing-md: 24px;
+    --component-spacing-lg: 32px;
+    --component-spacing-xl: 48px;
+    --component-spacing-2xl: 64px;
+    
+    /* Grid Gutters */
+    --grid-gap-mobile: 16px;
+    --grid-gap-tablet: 24px;
+    --grid-gap-desktop: 32px;
 
     /* === Typography === */
     --text-h1-desktop: 64px;
@@ -68,12 +92,101 @@
     /* background: linear-gradient(90deg, #F7797D 0%, #C471ED 52.08%, #12C2E9 100%); */
 
     /* === Gradients === */
-    --gradient-horizontal: linear-gradient(90deg, #F7797D 12%, #C471ED 52.08%, #12C2E9 100%);
-    --gradient-vertical: linear-gradient(52.14deg, #f7797d 8%, #c471ed 52%, #12c2e9 100%);
+    --gradient-horizontal: linear-gradient(
+      90deg,
+      #f7797d 12%,
+      #c471ed 52.08%,
+      #12c2e9 100%
+    );
+    --gradient-vertical: linear-gradient(
+      52.14deg,
+      #f7797d 8%,
+      #c471ed 52%,
+      #12c2e9 100%
+    );
   }
 }
 
 @layer utilities {
+  /* === Layout Utilities === */
+  .container-custom {
+    max-width: var(--container-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--container-padding-mobile);
+    padding-right: var(--container-padding-mobile);
+  }
+  
+  @media (min-width: 768px) {
+    .container-custom {
+      padding-left: var(--container-padding-tablet);
+      padding-right: var(--container-padding-tablet);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .container-custom {
+      padding-left: var(--container-padding-desktop);
+      padding-right: var(--container-padding-desktop);
+    }
+  }
+  
+  /* Section Spacing */
+  .section-spacing {
+    padding-top: var(--section-spacing-mobile);
+    padding-bottom: var(--section-spacing-mobile);
+  }
+  
+  @media (min-width: 768px) {
+    .section-spacing {
+      padding-top: var(--section-spacing-tablet);
+      padding-bottom: var(--section-spacing-tablet);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .section-spacing {
+      padding-top: var(--section-spacing-desktop);
+      padding-bottom: var(--section-spacing-desktop);
+    }
+  }
+  
+  /* Grid System */
+  .grid-custom {
+    display: grid;
+    gap: var(--grid-gap-mobile);
+  }
+  
+  @media (min-width: 768px) {
+    .grid-custom {
+      gap: var(--grid-gap-tablet);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .grid-custom {
+      gap: var(--grid-gap-desktop);
+    }
+  }
+  
+  .grid-cols-custom-1 { grid-template-columns: 1fr; }
+  .grid-cols-custom-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-cols-custom-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-cols-custom-4 { grid-template-columns: repeat(4, 1fr); }
+  .grid-cols-custom-12 { grid-template-columns: repeat(12, 1fr); }
+  
+  @media (min-width: 768px) {
+    .md\:grid-cols-custom-2 { grid-template-columns: repeat(2, 1fr); }
+    .md\:grid-cols-custom-3 { grid-template-columns: repeat(3, 1fr); }
+    .md\:grid-cols-custom-4 { grid-template-columns: repeat(4, 1fr); }
+  }
+  
+  @media (min-width: 1024px) {
+    .lg\:grid-cols-custom-3 { grid-template-columns: repeat(3, 1fr); }
+    .lg\:grid-cols-custom-4 { grid-template-columns: repeat(4, 1fr); }
+    .lg\:grid-cols-custom-12 { grid-template-columns: repeat(12, 1fr); }
+  }
+
   /* === Typography === */
   .text-h1-responsive {
     font-size: var(--text-h1-mobile);
@@ -82,7 +195,7 @@
     letter-spacing: var(--ls-h1-mobile);
     font-family: var(--font-noto);
   }
-  
+
   @media (min-width: 1024px) {
     .text-h1-responsive {
       font-size: var(--text-h1-desktop);
@@ -91,7 +204,7 @@
       font-family: var(--font-noto);
     }
   }
-  
+
   .text-h2-responsive {
     font-size: var(--text-h2-mobile);
     line-height: var(--lh-h2-mobile);
@@ -99,7 +212,7 @@
     letter-spacing: var(--ls-h2-mobile);
     font-family: var(--font-noto);
   }
-  
+
   @media (min-width: 1024px) {
     .text-h2-responsive {
       font-size: var(--text-h2-desktop);
@@ -108,7 +221,7 @@
       font-family: var(--font-noto);
     }
   }
-  
+
   .text-h3-responsive {
     font-size: var(--text-h3-mobile);
     line-height: var(--lh-h3-mobile);
@@ -116,17 +229,362 @@
     letter-spacing: var(--ls-h3-mobile);
     font-family: var(--font-noto);
   }
-  
+
   @media (min-width: 1024px) {
     .text-h3-responsive {
       font-size: var(--text-h3-desktop);
       line-height: var(--lh-h3-desktop);
       letter-spacing: var(--ls-h3-desktop);
       font-family: var(--font-noto);
-
     }
   }
+
+  /* Responsive 12-Column Grid Layout with Proportional Spacing */
+
+:root {
+  /* Desktop base ratios from 1440px design */
+  --desktop-base-viewport: 1440;
+  --desktop-base-grid-width: 1200;
+  --desktop-base-side-space: 120;
   
+  /* Mobile base ratios from 375px design */
+  --mobile-base-viewport: 375;
+  --mobile-base-grid-width: 327;
+  --mobile-base-side-space: 24;
+  
+  /* Calculate proportions for desktop */
+  --desktop-grid-width-ratio: calc(var(--desktop-base-grid-width) / var(--desktop-base-viewport)); /* 0.833... (83.33%) */
+  --desktop-side-space-ratio: calc(var(--desktop-base-side-space) / var(--desktop-base-viewport)); /* 0.083... (8.33%) */
+  
+  /* Calculate proportions for mobile */
+  --mobile-grid-width-ratio: calc(var(--mobile-base-grid-width) / var(--mobile-base-viewport)); /* 0.872 (87.2%) */
+  --mobile-side-space-ratio: calc(var(--mobile-base-side-space) / var(--mobile-base-viewport)); /* 0.064 (6.4%) */
+  
+  /* Dynamic calculations based on viewport (default to desktop) */
+  --current-viewport: 100vw;
+  --dynamic-grid-width: calc(var(--current-viewport) * var(--desktop-grid-width-ratio));
+  --dynamic-side-space: calc(var(--current-viewport) * var(--desktop-side-space-ratio));
+  
+  /* Grid gaps */
+  --grid-gap: 20px;
+  --mobile-grid-gap: 16px;
+  
+  /* Section spacing - Desktop vs Mobile */
+  --section-padding-y-desktop: 96px;
+  --section-padding-y-mobile: 64px;
+  --section-gap-desktop: 128px;
+  --section-gap-mobile: 96px;
+}
+
+/* Section Container - Handles vertical spacing */
+.section-container {
+  padding-top: var(--section-padding-y-desktop);
+  padding-bottom: var(--section-padding-y-desktop);
+}
+
+.section-container + .section-container {
+  margin-top: var(--section-gap-desktop);
+  padding-top: 0;
+}
+
+/* Main Grid Container */
+.layout-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--grid-gap);
+  
+  /* Use the proportional width and center it */
+  width: var(--dynamic-grid-width);
+  max-width: var(--dynamic-grid-width);
+  margin: 0 auto;
+  
+  /* Ensure minimum and maximum constraints */
+  min-width: 320px; /* Minimum for mobile */
+  
+  /* Add padding for very small screens */
+  padding: 0 min(var(--dynamic-side-space), 20px);
+}
+
+/* Alternative approach using container with padding */
+.layout-grid-container {
+  width: 100%;
+  padding-left: var(--dynamic-side-space);
+  padding-right: var(--dynamic-side-space);
+}
+
+.layout-grid-inner {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--grid-gap);
+  width: 100%;
+  max-width: var(--dynamic-grid-width);
+  margin: 0 auto;
+}
+
+/* Grid item utilities */
+.col-1 { grid-column: span 1; }
+.col-2 { grid-column: span 2; }
+.col-3 { grid-column: span 3; }
+.col-4 { grid-column: span 4; }
+.col-5 { grid-column: span 5; }
+.col-6 { grid-column: span 6; }
+.col-7 { grid-column: span 7; }
+.col-8 { grid-column: span 8; }
+.col-9 { grid-column: span 9; }
+.col-10 { grid-column: span 10; }
+.col-11 { grid-column: span 11; }
+.col-12 { grid-column: span 12; }
+
+/* Grid positioning utilities */
+.col-start-1 { grid-column-start: 1; }
+.col-start-2 { grid-column-start: 2; }
+.col-start-3 { grid-column-start: 3; }
+.col-start-4 { grid-column-start: 4; }
+.col-start-5 { grid-column-start: 5; }
+.col-start-6 { grid-column-start: 6; }
+.col-start-7 { grid-column-start: 7; }
+.col-start-8 { grid-column-start: 8; }
+.col-start-9 { grid-column-start: 9; }
+.col-start-10 { grid-column-start: 10; }
+.col-start-11 { grid-column-start: 11; }
+.col-start-12 { grid-column-start: 12; }
+
+.col-end-1 { grid-column-end: 1; }
+.col-end-2 { grid-column-end: 2; }
+.col-end-3 { grid-column-end: 3; }
+.col-end-4 { grid-column-end: 4; }
+.col-end-5 { grid-column-end: 5; }
+.col-end-6 { grid-column-end: 6; }
+.col-end-7 { grid-column-end: 7; }
+.col-end-8 { grid-column-end: 8; }
+.col-end-9 { grid-column-end: 9; }
+.col-end-10 { grid-column-end: 10; }
+.col-end-11 { grid-column-end: 11; }
+.col-end-12 { grid-column-end: 12; }
+.col-end-13 { grid-column-end: 13; }
+
+/* Responsive breakpoints with maintained proportions */
+@media (max-width: 768px) {
+  :root {
+    /* Switch to mobile proportions */
+    --dynamic-grid-width: calc(var(--current-viewport) * var(--mobile-grid-width-ratio));
+    --dynamic-side-space: calc(var(--current-viewport) * var(--mobile-side-space-ratio));
+    --grid-gap: var(--mobile-grid-gap);
+  }
+  
+  .section-container {
+    padding-top: var(--section-padding-y-mobile);
+    padding-bottom: var(--section-padding-y-mobile);
+  }
+  
+  .section-container + .section-container {
+    margin-top: var(--section-gap-mobile);
+  }
+  
+  .layout-grid {
+    /* On mobile, use 4 columns as per design */
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--mobile-grid-gap);
+  }
+  
+  /* Mobile column utilities */
+  .mobile\:col-1 { grid-column: span 1; }
+  .mobile\:col-2 { grid-column: span 2; }
+  .mobile\:col-3 { grid-column: span 3; }
+  .mobile\:col-4 { grid-column: span 4; }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  :root {
+    --grid-gap: 18px;
+  }
+  
+  .layout-grid {
+    /* Tablet might use 8 or 12 columns */
+    grid-template-columns: repeat(12, 1fr);
+  }
+  
+  /* Tablet column utilities */
+  .tablet\:col-1 { grid-column: span 1; }
+  .tablet\:col-2 { grid-column: span 2; }
+  .tablet\:col-3 { grid-column: span 3; }
+  .tablet\:col-4 { grid-column: span 4; }
+  .tablet\:col-5 { grid-column: span 5; }
+  .tablet\:col-6 { grid-column: span 6; }
+  .tablet\:col-7 { grid-column: span 7; }
+  .tablet\:col-8 { grid-column: span 8; }
+  .tablet\:col-9 { grid-column: span 9; }
+  .tablet\:col-10 { grid-column: span 10; }
+  .tablet\:col-11 { grid-column: span 11; }
+  .tablet\:col-12 { grid-column: span 12; }
+}
+
+@media (min-width: 1025px) {
+  :root {
+    --grid-gap: 20px;
+  }
+  
+  /* Desktop maintains 12 columns */
+  .layout-grid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+@media (min-width: 1800px) {
+  :root {
+    /* At 1800px: grid = 1500px, sides = 150px each */
+    --grid-gap: 24px;
+  }
+}
+
+@media (min-width: 2560px) {
+  :root {
+    /* Ultra-wide displays */
+    --grid-gap: 32px;
+  }
+}
+
+/* Debug mode to visualize the grid */
+.layout-grid.debug {
+  position: relative;
+}
+
+.layout-grid.debug::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.1) 0,
+      rgba(255, 0, 0, 0.1) calc((100% - 11 * var(--grid-gap)) / 12),
+      transparent calc((100% - 11 * var(--grid-gap)) / 12),
+      transparent calc((100% - 11 * var(--grid-gap)) / 12 + var(--grid-gap))
+    );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Show grid info in debug mode */
+.layout-grid.debug::after {
+  content: 'Grid: ' attr(data-width) 'px | Sides: ' attr(data-sides) 'px | Viewport: ' attr(data-viewport) 'px';
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: monospace;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+/* Section spacing utilities */
+.section-tight {
+  padding-top: calc(var(--section-padding-y-desktop) * 0.5);
+  padding-bottom: calc(var(--section-padding-y-desktop) * 0.5);
+}
+
+.section-normal {
+  padding-top: var(--section-padding-y-desktop);
+  padding-bottom: var(--section-padding-y-desktop);
+}
+
+.section-relaxed {
+  padding-top: calc(var(--section-padding-y-desktop) * 1.5);
+  padding-bottom: calc(var(--section-padding-y-desktop) * 1.5);
+}
+
+.section-loose {
+  padding-top: calc(var(--section-padding-y-desktop) * 2);
+  padding-bottom: calc(var(--section-padding-y-desktop) * 2);
+}
+
+/* Mobile section spacing overrides */
+@media (max-width: 768px) {
+  .section-tight {
+    padding-top: calc(var(--section-padding-y-mobile) * 0.5);
+    padding-bottom: calc(var(--section-padding-y-mobile) * 0.5);
+  }
+
+  .section-normal {
+    padding-top: var(--section-padding-y-mobile);
+    padding-bottom: var(--section-padding-y-mobile);
+  }
+
+  .section-relaxed {
+    padding-top: calc(var(--section-padding-y-mobile) * 1.5);
+    padding-bottom: calc(var(--section-padding-y-mobile) * 1.5);
+  }
+
+  .section-loose {
+    padding-top: calc(var(--section-padding-y-mobile) * 2);
+    padding-bottom: calc(var(--section-padding-y-mobile) * 2);
+  }
+}
+.hero-section {
+  display: contents; /* Makes children participate in the grid */
+}
+
+.hero-content {
+  grid-column: span 6;
+}
+
+.hero-image {
+  grid-column: span 6;
+}
+
+.main-content {
+  grid-column: span 8;
+}
+
+.sidebar {
+  grid-column: span 4;
+}
+
+.full-width {
+  grid-column: 1 / -1; /* Spans all columns */
+}
+
+/* Centered content variations */
+.centered-narrow {
+  grid-column: 3 / 11; /* Centered 8 columns */
+}
+
+.centered-medium {
+  grid-column: 2 / 12; /* Centered 10 columns */
+}
+
+/* Card layouts */
+.card-grid-2 {
+  display: contents;
+}
+
+.card-grid-2 > * {
+  grid-column: span 6;
+}
+
+.card-grid-3 {
+  display: contents;
+}
+
+.card-grid-3 > * {
+  grid-column: span 4;
+}
+
+.card-grid-4 {
+  display: contents;
+}
+
+.card-grid-4 > * {
+  grid-column: span 3;
+}
+
   /* Keep individual classes for specific use cases */
   .text-h1-desktop {
     font-size: var(--text-h1-desktop);
@@ -208,29 +666,73 @@
   }
 
   /* === Color Utilities === */
-  .bg-gray-900 { background-color: var(--color-gray-900); }
-  .bg-gray-600 { background-color: var(--color-gray-600); }
-  .bg-gray-500 { background-color: var(--color-gray-500); }
-  .bg-gray-300 { background-color: var(--color-gray-300); }
-  .bg-gray-200 { background-color: var(--color-gray-200); }
-  .bg-gray-50  { background-color: var(--color-gray-50); }
-  .bg-black    { background-color: var(--color-black); }
-  .bg-white    { background-color: var(--color-white); }
-  .bg-turquoise    { background-color: var(--color-turquoise); }
-  .bg-coral-pink   { background-color: var(--color-coral-pink); }
-  .bg-lilac        { background-color: var(--color-lilac); }
+  .bg-gray-900 {
+    background-color: var(--color-gray-900);
+  }
+  .bg-gray-600 {
+    background-color: var(--color-gray-600);
+  }
+  .bg-gray-500 {
+    background-color: var(--color-gray-500);
+  }
+  .bg-gray-300 {
+    background-color: var(--color-gray-300);
+  }
+  .bg-gray-200 {
+    background-color: var(--color-gray-200);
+  }
+  .bg-gray-50 {
+    background-color: var(--color-gray-50);
+  }
+  .bg-black {
+    background-color: var(--color-black);
+  }
+  .bg-white {
+    background-color: var(--color-white);
+  }
+  .bg-turquoise {
+    background-color: var(--color-turquoise);
+  }
+  .bg-coral-pink {
+    background-color: var(--color-coral-pink);
+  }
+  .bg-lilac {
+    background-color: var(--color-lilac);
+  }
 
-  .text-gray-900 { color: var(--color-gray-900); }
-  .text-gray-600 { color: var(--color-gray-600); }
-  .text-gray-500 { color: var(--color-gray-500); }
-  .text-gray-300 { color: var(--color-gray-300); }
-  .text-gray-200 { color: var(--color-gray-200); }
-  .text-gray-50  { color: var(--color-gray-50); }
-  .text-black    { color: var(--color-black); }
-  .text-white    { color: var(--color-white); }
-  .text-turquoise    { color: var(--color-turquoise); }
-  .text-coral-pink   { color: var(--color-coral-pink); }
-  .text-lilac        { color: var(--color-lilac); }
+  .text-gray-900 {
+    color: var(--color-gray-900);
+  }
+  .text-gray-600 {
+    color: var(--color-gray-600);
+  }
+  .text-gray-500 {
+    color: var(--color-gray-500);
+  }
+  .text-gray-300 {
+    color: var(--color-gray-300);
+  }
+  .text-gray-200 {
+    color: var(--color-gray-200);
+  }
+  .text-gray-50 {
+    color: var(--color-gray-50);
+  }
+  .text-black {
+    color: var(--color-black);
+  }
+  .text-white {
+    color: var(--color-white);
+  }
+  .text-turquoise {
+    color: var(--color-turquoise);
+  }
+  .text-coral-pink {
+    color: var(--color-coral-pink);
+  }
+  .text-lilac {
+    color: var(--color-lilac);
+  }
 
   /* === Gradient Utilities === */
   .bg-gradient-horizontal {
@@ -238,10 +740,15 @@
   }
   .bg-gradient-vertical {
     background-image: var(--gradient-vertical);
-  } 
+  }
 
   .gradient-edge {
-    background: linear-gradient(90deg, #F7797D 12%, #C471ED 52.08%, #12C2E9 100%);
+    background: linear-gradient(
+      90deg,
+      #f7797d 12%,
+      #c471ed 52.08%,
+      #12c2e9 100%
+    );
   }
 
   @keyframes marquee {
@@ -250,23 +757,21 @@
     }
     100% {
       transform: translateX(50%);
-    } 
-   
+    }
   }
   .marquee {
     display: flex;
     overflow: hidden;
- 
   }
 
-    .marquee-box {  
+  .marquee-box {
     display: flex;
     align-items: center;
     width: 200%;
     height: 100%;
- 
+
     overflow: hidden;
-    animation: marquee 50s linear infinite;
+    animation: marquee 60s linear infinite;
   }
   .maequee-item {
     float: left;
@@ -296,7 +801,15 @@
   }
 
   .sparkle-hover:hover {
-    background: linear-gradient(45deg, #12C2E9, #C471ED, #F7797D, #12C2E9, #C471ED, #F7797D);
+    background: linear-gradient(
+      45deg,
+      #12c2e9,
+      #c471ed,
+      #f7797d,
+      #12c2e9,
+      #c471ed,
+      #f7797d
+    );
     background-size: 300% 300%;
     animation: sparkle-border 3s ease-in-out infinite;
     padding: 2px;
@@ -310,7 +823,12 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.8) 50%, transparent 60%);
+    background: linear-gradient(
+      45deg,
+      transparent 40%,
+      rgba(255, 255, 255, 0.8) 50%,
+      transparent 60%
+    );
     background-size: 200% 200%;
     animation: sparkle-shine 2s linear infinite;
     border-radius: 8px;
@@ -344,12 +862,7 @@
     animation: cardStackIn 0.6s ease-out forwards;
     opacity: 0;
   }
-
-
 }
-
-
-
 
 /* Infinity Carousel Animations */
 @keyframes scroll {
@@ -360,9 +873,6 @@
     transform: translateX(calc(-100% - 1rem));
   }
 }
-
-
-
 
 /* Stack Carousel Animations */
 

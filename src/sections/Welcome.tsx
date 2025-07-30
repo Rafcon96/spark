@@ -17,14 +17,9 @@ function Welcome() {
         <div className="text-h2-responsive text-center cursor-default">
           זה הרגע שלכם.
         </div>
-        <div className="text-body-18 text-center max-w-[640px] cursor-default">
-          זה הרגע לו ציפיתם. השקעתם שבועות, ליטשתם את הרעיון, שקלתם כל מילה. כי
-          כשאתם פוגשים את הקהל שלכם, אתם יודעים - שזה הרגע שבו אתם צריכים סיפור
-          שעובד.{" "}
-          <span className="font-bold cursor-default">
-            יש לכם הזדמנות אמיתית: למכור, לשווק, להוביל שינוי, לרתום הנהלה,
-            לגייס השקעה. וברגע הזה – הסיפור שלכם עושה את ההבדל.
-          </span>
+        <div className="text-body-24 text-center max-w-[510px] cursor-default">
+          גיבשתם רעיון, בניתם תהליך, סימנתם מטרה. השקעתם זמן, משאבים, חשיבה.
+          ועכשיו – כשהמסר פוגש את הקהל, הסיפור חייב לעבוד.
         </div>
         <div className="py-8 text-caption-lg cursor-default">אתם צריכים:</div>
 
@@ -40,7 +35,7 @@ function Welcome() {
               />
             </div>
             <h3 className="font-bold mb-4 cursor-default">אסטרטגיה חכמה</h3>
-            <p className="text-body-24 cursor-default">לדעת בדיוק מה לומר.</p>
+            <p className="text-body-24 cursor-default">לזקק את המסר.</p>
           </div>
 
           {/* Column 2 */}
@@ -65,7 +60,9 @@ function Welcome() {
                 className="w-16 h-16 mx-auto"
               />
             </div>
-            <h3 className="font-bold mb-4 cursor-default">עיצוב מבודל</h3>
+            <h3 className="font-bold mb-4 cursor-default">
+              ויזואל שנכנס לזיכרון.
+            </h3>
             <p className="text-body-24 cursor-default">
               ויזואליים שנדבקים לזיכרון.
             </p>

@@ -11,7 +11,7 @@ const CompaniesReviews: React.FC<CompaniesReviewsProps> = () => {
   // Take only first 9 items for the grid
 
   return (
-    <div className="w-full py-12 px-6 lg:px-16 lg:py-24 relative gap-x-4">
+    <section className="w-full custom-container layout-grid-container py-12 px-6 lg:px-16 lg:py-24 relative ">
       {/* Background Image */}
       <div
         className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat -z-10"
@@ -19,26 +19,30 @@ const CompaniesReviews: React.FC<CompaniesReviewsProps> = () => {
           backgroundImage: "url('/compReviewsSection-bg.svg')",
         }}
       />
-      <div className="flex justify-self-center text-center z-10 text-h2-mobile p-12 max-w-xl cursor-default">
-        ביקורות מחברות שהסיפור שלהם הביא את הניצוץ
+      <div className="flex flex-col gap-6 justify-center items-center pb-16">
+        <div className="flex justify-self-center text-center z-10 text-h2-responsive  max-w-sm cursor-default">
+          כשהסיפור עובד התוצאה מספרת
+        </div>
+        <div className="text-caption-lg justify-self-center  bg-gradient-horizontal bg-clip-text text-transparent leading-relaxed w-fit cursor-default">
+          הנה מה שהלקוחות שלנו אומרים.{" "}
+        </div>
       </div>
-      <div className="max-w-7xl mx-auto relative    z-10">
-        {/* Masonry-style Grid */}
-        <div className=" gap-2 max-h-[800px] overflow-hidden">
-          {/* <motion.div
+
+      {/* Masonry-style Grid */}
+      <div className=" columns-1 md:columns-2 lg:columns-3 break-inside-avoid  ">
+        {/* <motion.div
             initial={{ y: 250, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ ease: "easeOut", duration: 2 }}
             className="w-full h-fit"
     
           > */}
-          {workerReviews.map((item, index) => (
-            <ReviewCard key={index} {...item} />
-          ))}
-          {/* </motion.div> */}
-        </div>
+        {workerReviews.map((item, index) => (
+          <ReviewCard key={index} {...item} />
+        ))}
+        {/* </motion.div> */}
       </div>
-    </div>
+    </section>
   );
 };
 

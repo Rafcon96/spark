@@ -82,16 +82,16 @@ export const workerReviews: WorkerReview[] = [
     typeWC: "worker",
     authorName: "יוסי בן יוסי",
     authorRole: "מנהל חברה",
-    authorAvatar: "https://via.placeholder.com/150",
+    authorAvatar: "https://static.vecteezy.com/system/resources/previews/048/216/761/non_2x/modern-male-avatar-with-black-hair-and-hoodie-illustration-free-png.png",
   },
   {
     id: 2,
     rating: 5,
-    reviewText: "כל מה שאני צריכה עובד בצורה מושלמת ובזמן מהיר",
+    reviewText: "כל מה שאני qwdwqd qweqwe eqweqwe qweeqwe  qweqw ewrq qwewqe wqrqwer qwerqwe qrqrqr reqwrצריכה עובד בצורה מושלמת ובזמן מהיר",
     typeWC: "worker",
     authorName: "יוסי בן יוסי",
     authorRole: "מנהל חברה",
-    authorAvatar: "https://via.placeholder.com/150",
+    authorAvatar: "https://static.vecteezy.com/system/resources/previews/048/216/761/non_2x/modern-male-avatar-with-black-hair-and-hoodie-illustration-free-png.png",
   },
   {
     id: 3,
@@ -100,7 +100,7 @@ export const workerReviews: WorkerReview[] = [
     typeWC: "worker",
     authorName: "יוסי בן יוסי",
     authorRole: "מנהל חברה",
-    authorAvatar: "https://via.placeholder.com/150",
+    authorAvatar: "https://static.vecteezy.com/system/resources/previews/048/216/761/non_2x/modern-male-avatar-with-black-hair-and-hoodie-illustration-free-png.png",
   },
   {
     id: 4,
@@ -109,7 +109,7 @@ export const workerReviews: WorkerReview[] = [
     typeWC: "worker",
     authorName: "יוסי בן יוסי",
     authorRole: "מנהל חברה",
-    authorAvatar: "https://via.placeholder.com/150",
+    authorAvatar: "https://static.vecteezy.com/system/resources/previews/048/216/761/non_2x/modern-male-avatar-with-black-hair-and-hoodie-illustration-free-png.png",
   },
   {
     id: 5,
@@ -118,7 +118,7 @@ export const workerReviews: WorkerReview[] = [
     typeWC: "worker",
     authorName: "יוסי בן יוסי",
     authorRole: "מנהל חברה",
-    authorAvatar: "https://via.placeholder.com/150",
+    authorAvatar: "https://static.vecteezy.com/system/resources/previews/048/216/761/non_2x/modern-male-avatar-with-black-hair-and-hoodie-illustration-free-png.png",
   },
   {
     id: 6,
@@ -127,7 +127,7 @@ export const workerReviews: WorkerReview[] = [
     typeWC: "worker",
     authorName: "יוסי בן יוסי",
     authorRole: "מנהל חברה",
-    authorAvatar: "https://via.placeholder.com/150",
+    authorAvatar: "https://static.vecteezy.com/system/resources/previews/048/216/761/non_2x/modern-male-avatar-with-black-hair-and-hoodie-illustration-free-png.png",
   },
   {
     id: 7,
@@ -136,7 +136,7 @@ export const workerReviews: WorkerReview[] = [
     typeWC: "worker",
     authorName: "יוסי בן יוסי",
     authorRole: "מנהל חברה",
-    authorAvatar: "https://via.placeholder.com/150",
+    authorAvatar: "https://static.vecteezy.com/system/resources/previews/048/216/761/non_2x/modern-male-avatar-with-black-hair-and-hoodie-illustration-free-png.png",
   },
   {
     id: 8,
@@ -145,7 +145,7 @@ export const workerReviews: WorkerReview[] = [
     typeWC: "worker",
     authorName: "יוסי בן יוסי",
     authorRole: "מנהל חברה",
-    authorAvatar: "https://via.placeholder.com/150",
+    authorAvatar: "https://static.vecteezy.com/system/resources/previews/048/216/761/non_2x/modern-male-avatar-with-black-hair-and-hoodie-illustration-free-png.png",
   },
   {
     id: 9,
@@ -154,7 +154,7 @@ export const workerReviews: WorkerReview[] = [
     typeWC: "worker",
     authorName: "יוסי בן יוסי",
     authorRole: "מנהל חברה",
-    authorAvatar: "https://via.placeholder.com/150",
+    authorAvatar: "https://static.vecteezy.com/system/resources/previews/048/216/761/non_2x/modern-male-avatar-with-black-hair-and-hoodie-illustration-free-png.png",
   },
   {
     id: 10,
@@ -163,7 +163,7 @@ export const workerReviews: WorkerReview[] = [
     typeWC: "worker",
     authorName: "יוסי בן יוסי",
     authorRole: "מנהל חברה",
-    authorAvatar: "https://via.placeholder.com/150",
+    authorAvatar: "https://static.vecteezy.com/system/resources/previews/048/216/761/non_2x/modern-male-avatar-with-black-hair-and-hoodie-illustration-free-png.png",
   },
   {
     id: 11,
@@ -172,7 +172,7 @@ export const workerReviews: WorkerReview[] = [
     typeWC: "worker",
     authorName: "יוסי בן יוסי",
     authorRole: "מנהל חברה",
-    authorAvatar: "https://via.placeholder.com/150",
+    authorAvatar: "https://static.vecteezy.com/system/resources/previews/048/216/761/non_2x/modern-male-avatar-with-black-hair-and-hoodie-illustration-free-png.png",
   },
   {
     id: 12,
@@ -181,6 +181,6 @@ export const workerReviews: WorkerReview[] = [
     typeWC: "worker",
     authorName: "יוסי בן יוסי",
     authorRole: "מנהל חברה",
-    authorAvatar: "https://via.placeholder.com/150",
+    authorAvatar: "https://static.vecteezy.com/system/resources/previews/048/216/761/non_2x/modern-male-avatar-with-black-hair-and-hoodie-illustration-free-png.png",
   },
 ];

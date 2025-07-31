@@ -42,11 +42,14 @@ const renderStars = (count: number) => {
 };
 
 const ReviewCard: React.FC<ReviewCardProps> = (props) => {
-  const cardWidth = props.typeWC === "worker" ? "w-[392px]" : "w-[360px]";
+  const cardWidth =
+    props.typeWC === "worker"
+      ? " h-fit mx-0 mb-[12px] md:mb-[14px] break-inside-avoid w-full"
+      : "w-[360px] flex-shrink-0 marquee-item overflow-hidden m-[2px]";
 
   return (
     <div
-      className={`bg-white overflow-hidden  border-[#E9EAEB] shadow-sm rounded-xl p-8 m-[2px] gap-6 ${cardWidth} flex flex-col flex-shrink-0 marquee-item`}
+      className={`bg-white   border-[#E9EAEB] shadow-sm rounded-xl p-8  gap-6 ${cardWidth}  flex flex-col`}
     >
       <div>{renderStars(props.rating)}</div>
       <p className="text-gray-700 text-sm">{props.reviewText}</p>
@@ -56,7 +59,7 @@ const ReviewCard: React.FC<ReviewCardProps> = (props) => {
           {props.companyName}
         </div>
       ) : (
-        <div className="flex items-center mt-3 space-x-3">
+        <div className="flex items-center  space-x-3">
           {props.authorAvatar ? (
             <img
               src={props.authorAvatar}

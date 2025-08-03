@@ -17,7 +17,7 @@ function Hero() {
         />
 
         {/* Text Content - Top on mobile, absolute positioned on large screens */}
-        <div className="w-full layout-grid static  lg:items-start lg:justify-end lg:relative order-1 justify-self-center ">
+        <div className="w-full container-1200  lg:items-start lg:justify-end lg:relative order-1 justify-self-center ">
           <div className=" col-6 pt-24 lg:pt-64 z-10">
             <div className="text-h1-responsive bg-gradient-horizontal bg-clip-text text-transparent cursor-default pr-[2px]">
               <h1 className="cursor-default">מטרות גדולות?</h1>

@@ -16,7 +16,7 @@ const Header: React.FC = () => {
       className="w-full bg-black shadow-sm  sticky top-0 z-150 "
       dir="rtl"
     >
-      <div className="custom-container flex justify-self-center caret-transparent">
+      <div className="container-1200 flex justify-self-center caret-transparent">
         <div className="flex justify-between items-center h-16 w-full ">
           {/* Navigation - Desktop */}
           <nav className="hidden md:flex w-1/3 justify-self-start gap-6 text-body-14 text-white cursor-pointer">
@@ -67,12 +67,12 @@ const Header: React.FC = () => {
             </div>
           </div>
           {/* Logo */}
-          <div className="flex-shrink-0 hidden md:flex w-1/3 justify-self-center">
+          <div className="flex-shrink-0 hidden md:flex w-1/3 justify-self-center justify-center">
             <img src={"./spark-header.svg"} alt="logo" />
           </div>
 
           {/* CTA Button */}
-          <div className="hidden md:flex">
+          <div className="hidden md:flex w-1/3  justify-self-end justify-end">
             {/* <div className="p-[2px] bg-gradient-horizontal rounded-lg shadow-[0_8px_32px_rgba(247,121,125,0.3),0_8px_32px_rgba(196,113,237,0.3),0_8px_32px_rgba(18,194,233,0.3),0_4px_16px_rgba(18,194,233,0.2)] hover:shadow-[0_12px_48px_rgba(247,121,125,0.4),0_12px_48px_rgba(196,113,237,0.4),0_12px_48px_rgba(18,194,233,0.4),0_6px_20px_rgba(18,194,233,0.3)] transition-all duration-300 hover:scale-105 active:scale-95">
               <button
                 onClick={() => jumpToSection("contact")}
@@ -82,7 +82,7 @@ const Header: React.FC = () => {
               </button>
             </div> */}
             <button
-              className="btn-gradient-sm"
+              className="btn-gradient-sm justify-self-end"
               onClick={() => jumpToSection("contact")}
             >
               בואו נדבר

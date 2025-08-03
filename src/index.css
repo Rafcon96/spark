@@ -77,6 +77,12 @@
     --text-caption-lg: 18px;
     --lh-caption-lg: 24px;
 
+    /* === Custom Typography === */
+    --text-small-caption: 12px;
+    --lh-small-caption: 16px;
+    --fw-medium: 500;
+    --ls-small-caption: 0.04em; /* 4% letter spacing */
+
     /* === Colors === */
     --color-black: #000000;
     --color-white: #ffffff;
@@ -283,6 +289,37 @@
   flex-wrap: wrap;
   width: 1200px;
   gap: 0 24px; /* Only horizontal gap between columns */
+}
+
+/* Centered 1200px Container */
+.container-1200 {
+  max-width: 1200px;
+  margin: 0 calc((100vw - 1216px) / 2);
+  width: 100%;
+  padding: 0; /* No padding - content can be flush to edges */
+  justify-content: center;
+  
+}
+@media (max-width: 1240px) {
+  .container-1200 {
+    max-width: 100%;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 16px; /* Small padding for mobile screens */
+  }
+}
+
+/* Centered 1200px Container - No Padding */
+ 
+
+/* === Typography Classes === */
+.text-small-caption {
+  font-family: var(--font-poppins);
+  font-weight: var(--fw-medium);
+  font-size: var(--text-small-caption);
+  line-height: var(--lh-small-caption);
+  letter-spacing: var(--ls-small-caption);
+  text-align: center;
 }
 
 /* Span Classes - Define how many columns an element takes */

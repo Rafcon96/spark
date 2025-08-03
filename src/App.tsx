@@ -7,7 +7,7 @@ import ThankYou from "./pages/ThankYou";
 function App() {
   return (
     <Router>
-      <div className="min-h-screen w-full flex flex-col  caret-transparent">
+      <div className="min-h-screen w-full flex flex-col  caret-transparent ">
         <Routes>
           {/* Home page route */}
           <Route

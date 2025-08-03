@@ -276,6 +276,91 @@
   --section-gap-mobile: 96px;
 }
 
+
+/* Container Class */
+.custom-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1200px;
+  gap: 0 24px; /* Only horizontal gap between columns */
+}
+
+/* Span Classes - Define how many columns an element takes */
+.custom-span-1 { width: calc(1 * 78px); }
+.custom-span-2 { width: calc(2 * 78px + 1 * 24px); }
+.custom-span-3 { width: calc(3 * 78px + 2 * 24px); }
+.custom-span-4 { width: calc(4 * 78px + 3 * 24px); }
+.custom-span-5 { width: calc(5 * 78px + 4 * 24px); }
+.custom-span-6 { width: calc(6 * 78px + 5 * 24px); }
+.custom-span-7 { width: calc(7 * 78px + 6 * 24px); }
+.custom-span-8 { width: calc(8 * 78px + 7 * 24px); }
+.custom-span-9 { width: calc(9 * 78px + 8 * 24px); }
+.custom-span-10 { width: calc(10 * 78px + 9 * 24px); }
+.custom-span-11 { width: calc(11 * 78px + 10 * 24px); }
+.custom-span-12 { width: calc(12 * 78px + 11 * 24px); }
+
+/* Start Position Classes - Define where an element starts */
+.custom-start-1 { margin-left: 0; }
+.custom-start-2 { margin-left: calc(1 * 78px + 1 * 24px); }
+.custom-start-3 { margin-left: calc(2 * 78px + 2 * 24px); }
+.custom-start-4 { margin-left: calc(3 * 78px + 3 * 24px); }
+.custom-start-5 { margin-left: calc(4 * 78px + 4 * 24px); }
+.custom-start-6 { margin-left: calc(5 * 78px + 5 * 24px); }
+.custom-start-7 { margin-left: calc(6 * 78px + 6 * 24px); }
+.custom-start-8 { margin-left: calc(7 * 78px + 7 * 24px); }
+.custom-start-9 { margin-left: calc(8 * 78px + 8 * 24px); }
+.custom-start-10 { margin-left: calc(9 * 78px + 9 * 24px); }
+.custom-start-11 { margin-left: calc(10 * 78px + 10 * 24px); }
+.custom-start-12 { margin-left: calc(11 * 78px + 11 * 24px); }
+
+/* Mobile Responsive Grid System */
+@media (max-width: 768px) {
+  /* Mobile Container - 4 columns with 24px side margins and 12px gaps */
+  .custom-container {
+    width: 100%;
+    margin: 0 24px;
+    gap: 0 12px;
+    /* Calculate available width: 100vw - (24px left margin + 24px right margin) */
+    width: calc(100vw - 48px);
+  }
+
+  /* Mobile Span Classes - 4 column system */
+  .custom-span-1 { width: calc((100% - 3 * 12px) / 4); }
+  .custom-span-2 { width: calc(2 * (100% - 3 * 12px) / 4 + 1 * 12px); }
+  .custom-span-3 { width: calc(3 * (100% - 3 * 12px) / 4 + 2 * 12px); }
+  .custom-span-4 { width: calc(4 * (100% - 3 * 12px) / 4 + 3 * 12px); }
+  
+  /* For spans 5-12, treat them as full width on mobile */
+  .custom-span-5,
+  .custom-span-6,
+  .custom-span-7,
+  .custom-span-8,
+  .custom-span-9,
+  .custom-span-10,
+  .custom-span-11,
+  .custom-span-12 { 
+    width: 100%; 
+  }
+
+  /* Mobile Start Position Classes - 4 column system */
+  .custom-start-1 { margin-left: 0; }
+  .custom-start-2 { margin-left: calc((100% - 3 * 12px) / 4 + 12px); }
+  .custom-start-3 { margin-left: calc(2 * (100% - 3 * 12px) / 4 + 2 * 12px); }
+  .custom-start-4 { margin-left: calc(3 * (100% - 3 * 12px) / 4 + 3 * 12px); }
+  
+  /* For start positions 5-12, reset to start-1 on mobile */
+  .custom-start-5,
+  .custom-start-6,
+  .custom-start-7,
+  .custom-start-8,
+  .custom-start-9,
+  .custom-start-10,
+  .custom-start-11,
+  .custom-start-12 { 
+    margin-left: 0; 
+  }
+}
+
 /* Section Container - Handles vertical spacing */
 .section-container {
   padding-top: var(--section-padding-y-desktop);
@@ -795,6 +880,16 @@
     }
   }
 
+  .text-body-14 {
+    font-family: 'Noto Sans Hebrew', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    text-align: center;
+  }
+
   .sparkle-hover {
     position: relative;
     transition: all 0.3s ease;
@@ -873,7 +968,130 @@
     transform: translateX(calc(-100% - 1rem));
   }
 }
+@layer utilities {
+  /* Small Gradient Button */
+  .btn-gradient-sm {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    border-radius: 6px;
+    background-color: black;
+    color: white;
+    font-family: 'Noto Sans Hebrew', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    text-align: center;
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    box-shadow: 
+      12px 0px 16px 0px #12C2E933,
+      -12px 0px 16px 0px #F7797D33,
+      0px 12px 16px 0px #C471ED33,
+      0px -12px 16px 0px #C471ED33;
+    transition: transform 0.2s ease;
+  }
 
+  .btn-gradient-sm::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    margin: -1px;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #F7797D 0%, #C471ED 52.08%, #12C2E9 100%);
+  }
+
+  .btn-gradient-sm:hover {
+    transform: translateY(-1px);
+  }
+
+  /* Large Gradient Button */
+  .btn-gradient-lg {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    border-radius: 6px;
+    background-color: black;
+    color: white;
+    font-family: 'Noto Sans Hebrew', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0%;
+    text-align: center;
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    box-shadow: 
+      12px 0px 16px 0px #12C2E933,
+      -12px 0px 16px 0px #F7797D33,
+      0px 12px 16px 0px #C471ED33,
+      0px -12px 16px 0px #C471ED33;
+    transition: transform 0.2s ease;
+  }
+
+  .btn-gradient-lg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    margin: -1px;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #F7797D 0%, #C471ED 52.08%, #12C2E9 100%);
+  }
+
+  .btn-gradient-lg:hover {
+    transform: translateY(-1px);
+  }
+
+  /* Typography Utility */
+  .text-hebrew-regular {
+    font-family: 'Noto Sans Hebrew', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    text-align: center;
+  }
+
+  /* Optional: Focus states for accessibility */
+  .btn-gradient-sm:focus-visible,
+  .btn-gradient-lg:focus-visible {
+    outline: 2px solid #C471ED;
+    outline-offset: 2px;
+  }
+
+  /* Optional: Active states */
+  .btn-gradient-sm:active,
+  .btn-gradient-lg:active {
+    transform: translateY(0px);
+  }
+
+  /* Optional: Disabled states */
+  .btn-gradient-sm:disabled,
+  .btn-gradient-lg:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .btn-gradient-sm:disabled:hover,
+  .btn-gradient-lg:disabled:hover {
+    transform: none;
+  }
+}
 /* Stack Carousel Animations */
 
 

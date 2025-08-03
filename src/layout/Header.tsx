@@ -16,31 +16,31 @@ const Header: React.FC = () => {
       className="w-full bg-black shadow-sm  sticky top-0 z-150 "
       dir="rtl"
     >
-      <div className="container-custom">
-        <div className="flex justify-between items-center h-16">
+      <div className="custom-container flex justify-self-center caret-transparent">
+        <div className="flex justify-between items-center h-16 w-full ">
           {/* Navigation - Desktop */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex w-1/3 justify-self-start gap-6 text-body-14 text-white cursor-pointer">
             <a
               onClick={() => jumpToSection("about")}
-              className=" cursor-pointer text-white hover:translate-y-[-1px] px-3 py-2 text-sm font-medium transition-colors"
+              className="cursor-pointer hover:text-gray-300 transition-colors"
             >
               אודות
             </a>
             <a
               onClick={() => jumpToSection("capabilities")}
-              className="text-white hover:translate-y-[-1px] cursor-pointer px-3 py-2 text-sm font-medium transition-colors"
+              className="cursor-pointer hover:text-gray-300 transition-colors"
             >
               יכולות
             </a>
             <a
               onClick={() => jumpToSection("works")}
-              className=" cursor-pointer text-white hover:translate-y-[-1px] px-3 py-2 text-sm font-medium transition-colors"
+              className="cursor-pointer hover:text-gray-300 transition-colors"
             >
               עבודות
             </a>
             <a
               onClick={() => jumpToSection("process")}
-              className=" cursor-pointer text-white hover:translate-y-[-1px] px-3 py-2 text-sm font-medium transition-colors"
+              className="cursor-pointer hover:text-gray-300 transition-colors"
             >
               תהליך
             </a>
@@ -67,20 +67,26 @@ const Header: React.FC = () => {
             </div>
           </div>
           {/* Logo */}
-          <div className="flex-shrink-0 hidden md:flex">
+          <div className="flex-shrink-0 hidden md:flex w-1/3 justify-self-center">
             <img src={"./spark-header.svg"} alt="logo" />
           </div>
 
           {/* CTA Button */}
           <div className="hidden md:flex">
-            <div className="p-[2px] bg-gradient-horizontal rounded-lg shadow-[0_8px_32px_rgba(247,121,125,0.3),0_8px_32px_rgba(196,113,237,0.3),0_8px_32px_rgba(18,194,233,0.3),0_4px_16px_rgba(18,194,233,0.2)] hover:shadow-[0_12px_48px_rgba(247,121,125,0.4),0_12px_48px_rgba(196,113,237,0.4),0_12px_48px_rgba(18,194,233,0.4),0_6px_20px_rgba(18,194,233,0.3)] transition-all duration-300 hover:scale-105 active:scale-95">
+            {/* <div className="p-[2px] bg-gradient-horizontal rounded-lg shadow-[0_8px_32px_rgba(247,121,125,0.3),0_8px_32px_rgba(196,113,237,0.3),0_8px_32px_rgba(18,194,233,0.3),0_4px_16px_rgba(18,194,233,0.2)] hover:shadow-[0_12px_48px_rgba(247,121,125,0.4),0_12px_48px_rgba(196,113,237,0.4),0_12px_48px_rgba(18,194,233,0.4),0_6px_20px_rgba(18,194,233,0.3)] transition-all duration-300 hover:scale-105 active:scale-95">
               <button
                 onClick={() => jumpToSection("contact")}
                 className="bg-black text-white text-body-24 font-bold px-2 py-1 rounded-lg w-full h-full cursor-pointer hover:bg-gray-900 active:bg-gray-800 transition-all duration-200 transform hover:translate-y-[-1px] active:translate-y-[1px]"
               >
                 בואו נדבר
               </button>
-            </div>
+            </div> */}
+            <button
+              className="btn-gradient-sm"
+              onClick={() => jumpToSection("contact")}
+            >
+              בואו נדבר
+            </button>
           </div>
 
           {/* Mobile menu button */}
@@ -152,14 +158,20 @@ const Header: React.FC = () => {
             </div>
 
             {/* CTA Button */}
-            <div className="p-[2px] bg-gradient-horizontal rounded-lg shadow-[0_8px_32px_rgba(247,121,125,0.3),0_8px_32px_rgba(196,113,237,0.3),0_8px_32px_rgba(18,194,233,0.3),0_4px_16px_rgba(18,194,233,0.2)] hover:shadow-[0_12px_48px_rgba(247,121,125,0.4),0_12px_48px_rgba(196,113,237,0.4),0_12px_48px_rgba(18,194,233,0.4),0_6px_20px_rgba(18,194,233,0.3)] transition-all duration-300 hover:scale-105 active:scale-95">
+            {/* <div className="p-[2px] bg-gradient-horizontal rounded-lg shadow-[0_8px_32px_rgba(247,121,125,0.3),0_8px_32px_rgba(196,113,237,0.3),0_8px_32px_rgba(18,194,233,0.3),0_4px_16px_rgba(18,194,233,0.2)] hover:shadow-[0_12px_48px_rgba(247,121,125,0.4),0_12px_48px_rgba(196,113,237,0.4),0_12px_48px_rgba(18,194,233,0.4),0_6px_20px_rgba(18,194,233,0.3)] transition-all duration-300 hover:scale-105 active:scale-95">
               <button
                 onClick={() => jumpToSection("contact")}
                 className="bg-black text-white text-body-24 font-bold px-8 py-3 rounded-lg w-full h-full cursor-pointer hover:bg-gray-900 active:bg-gray-800 transition-all duration-200 transform hover:translate-y-[-1px] active:translate-y-[1px]"
               >
                 בואו נדבר
               </button>
-            </div>
+            </div> */}
+            <button
+              className="btn-gradient-sm"
+              onClick={() => jumpToSection("contact")}
+            >
+              בואו נדבר
+            </button>
           </div>
         </div>
       )}

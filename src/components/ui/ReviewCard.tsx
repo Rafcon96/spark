@@ -49,17 +49,15 @@ const ReviewCard: React.FC<ReviewCardProps> = (props) => {
 
   return (
     <div
-      className={`bg-white   border-[#E9EAEB] shadow-sm rounded-xl p-8  gap-6 ${cardWidth}  flex flex-col`}
+      className={`bg-white text-body-16 text-black  border-[#E9EAEB] shadow-sm rounded-xl p-8  gap-6 ${cardWidth}  flex flex-col`}
     >
       <div>{renderStars(props.rating)}</div>
-      <p className="text-gray-700 text-sm">{props.reviewText}</p>
+      <p className=" ">{props.reviewText}</p>
 
       {props.typeWC === "company" ? (
-        <div className="text-right text-sm text-gray-500 font-medium">
-          {props.companyName}
-        </div>
+        <div className="text-right  font-semibold">{props.companyName}</div>
       ) : (
-        <div className="flex items-center  space-x-3">
+        <div className="flex items-center  space-x-3 text-body-18 text-black">
           {props.authorAvatar ? (
             <img
               src={props.authorAvatar}
@@ -67,15 +65,13 @@ const ReviewCard: React.FC<ReviewCardProps> = (props) => {
               className="w-10 h-10 rounded-full"
             />
           ) : (
-            <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-sm text-gray-500">
+            <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center ">
               {props.authorName[0]}
             </div>
           )}
           <div>
-            <div className="text-sm font-semibold text-gray-800">
-              {props.authorName}
-            </div>
-            <div className="text-xs text-gray-500">{props.authorRole}</div>
+            <div className=" font-semibold ">{props.authorName}</div>
+            <div className="text-body-14 ">{props.authorRole}</div>
           </div>
         </div>
       )}

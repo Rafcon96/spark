@@ -30,10 +30,15 @@ const LandingPage: React.FC = () => {
         <SuccessStories />
       </section>
 
-      <section id="process" className="w-full section-spacing">
+      <section id="process" className="w-full ">
         <HowDoesItWork />
       </section>
-      <section>
+      <section
+        className="section-spacing w-full justify-center items-center bg-cover bg-center bg-no-repeat   layout-grid-container "
+        style={{
+          backgroundImage: "url('/compReviewsSection-bg.svg')",
+        }}
+      >
         {/* <Testimonials /> */}
         <CompaniesReviewsSection />
       </section>

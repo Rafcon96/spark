@@ -11,15 +11,15 @@ const CompaniesReviews: React.FC<CompaniesReviewsProps> = () => {
   // Take only first 9 items for the grid
 
   return (
-    <section className="w-full custom-container layout-grid-container py-12 px-6 lg:px-16 lg:py-24 relative ">
+    <section className=" self-center  px-0 lg:px-4  relative ">
       {/* Background Image */}
       <div
-        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat -z-10"
-        style={{
-          backgroundImage: "url('/compReviewsSection-bg.svg')",
-        }}
+        className="absolute inset-0 w-full h-full -z-10"
+        // style={{
+        //   backgroundImage: "url('/compReviewsSection-bg.svg')",
+        // }}
       />
-      <div className="flex flex-col gap-6 justify-center items-center pb-16">
+      <div className="flex flex-col gap-6 self-center items-center w-full pb-16 ">
         <div className="flex justify-self-center text-center z-10 text-h2-responsive  max-w-sm cursor-default">
           כשהסיפור עובד התוצאה מספרת
         </div>

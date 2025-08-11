@@ -8,6 +8,7 @@ interface TimelineProps {
 const Timeline: React.FC<TimelineProps> = ({ items }) => {
   const [visibleItems, setVisibleItems] = useState<number[]>([]);
   const timelineRef = useRef<HTMLDivElement>(null);
+  const SEGMENT_PX = 200; // used only for visibility calc; visual line uses percentage
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,7 +20,7 @@ const Timeline: React.FC<TimelineProps> = ({ items }) => {
       const newVisibleItems: number[] = [];
 
       items.forEach((item) => {
-        const itemPosition = timelineTop + (item.id - 1) * 200; // Approximate spacing
+        const itemPosition = timelineTop + (item.id - 1) * SEGMENT_PX; // Approx spacing for reveal
         if (scrollPosition >= itemPosition) {
           newVisibleItems.push(item.id);
         }
@@ -35,25 +36,32 @@ const Timeline: React.FC<TimelineProps> = ({ items }) => {
   }, [items]);
 
   return (
-    <div className="w-full py-12 lg:py-24">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="w-full ">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:pr-14">
         {/* Timeline Container */}
         <div ref={timelineRef} className="relative">
           {/* Vertical Line */}
-          <div
-            className="absolute right-8 top-8 w-1 bg-gray-300"
-            style={{ height: `calc(100% - 2rem)` }}
-          >
-            <div
-              className="w-full bg-gradient-to-b from-[#12C2E9] to-[#F7797D] transition-all duration-1000 ease-out"
-              style={{
-                height: `${(visibleItems.length / items.length) * 100}%`,
-              }}
-            />
-          </div>
+          {(() => {
+            const totalSegments = Math.max(items.length - 1, 1);
+            const fillPercent = Math.max(
+              0,
+              Math.min(((visibleItems.length - 1) / totalSegments) * 100, 100)
+            );
+            return (
+              <div
+                className="absolute right-4.5 top-8 w-1 bg-gray-300"
+                style={{ height: `calc(70% - 2rem)` }}
+              >
+                <div
+                  className="w-full bg-gradient-to-b from-[#12C2E9] to-[#F7797D] transition-all duration-1000 ease-out"
+                  style={{ height: `${fillPercent}%` }}
+                />
+              </div>
+            );
+          })()}
 
           {/* Timeline Items */}
-          <div className="space-y-8 lg:space-y-12">
+          <div>
             {items.map((item) => (
               <div
                 key={item.id}
@@ -66,7 +74,7 @@ const Timeline: React.FC<TimelineProps> = ({ items }) => {
                 {/* Timeline Point */}
                 <div className="flex-shrink-0 relative">
                   <div
-                    className={`w-16 h-16 rounded-full border-2 border-white bg-white flex items-center justify-center font-bold text-xl text-gray-800 transition-all duration-500 ${
+                    className={`w-10 h-10 rounded-full border-2 border-white bg-white flex items-center justify-center text-body-18 text-gray-800 transition-all duration-500 ${
                       visibleItems.includes(item.id) ? "scale-110" : "scale-100"
                     }`}
                     style={{
@@ -82,12 +90,12 @@ const Timeline: React.FC<TimelineProps> = ({ items }) => {
                 {/* Content */}
                 <div className="flex-1 pb-8">
                   {/* Heading */}
-                  <h3 className="text-body-24 font-bold text-gray-900 my-[18px] cursor-default">
+                  <h3 className="text-body-24 font-semibold text-black my-1.5 cursor-default">
                     {item.heading}
                   </h3>
 
                   {/* Body Text */}
-                  <div className="text-body-18 text-[#535862] leading-relaxed cursor-default">
+                  <div className="text-body-18 text-gray-600 leading-relaxed cursor-default">
                     {item.content.split("\n").map((line, lineIndex) => {
                       // Check if line contains emphasis markers
                       if (line.includes("**") && line.includes("**")) {

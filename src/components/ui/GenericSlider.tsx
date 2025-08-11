@@ -20,7 +20,7 @@ const getSlideStyles = (itemsPerView: number) => ({
   gap: itemsPerView >= 3 ? "12px" : "24px",
   alignItems: "stretch",
   justifyContent: "center",
-  padding: "0 40px",
+  // padding: "0 40px",
 });
 
 const rightArrowStyles = {
@@ -187,7 +187,7 @@ function GenericSlider<T>({
   };
 
   const getItemStyles = () => ({
-    flex: `0 0 calc(${100 / currentItemsPerView}% - ${
+    flex: `0 0 2 200px - ${
       ((currentItemsPerView >= 3 ? 12 : 24) * (currentItemsPerView - 1)) /
       currentItemsPerView
     }px)`,
@@ -219,13 +219,13 @@ function GenericSlider<T>({
           <div
             style={leftArrowStyles}
             onClick={goToPrevious}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 1)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor =
-                "rgba(255, 255, 255, 0.9)";
-            }}
+            // onMouseEnter={(e) => {
+            //   e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 1)";
+            // }}
+            // onMouseLeave={(e) => {
+            //   e.currentTarget.style.backgroundColor =
+            //     "rgba(255, 255, 255, 0.9)";
+            // }}
           >
             ❮
           </div>
@@ -237,16 +237,16 @@ function GenericSlider<T>({
                 key={index}
                 style={index === currentIndex ? activeDotStyles : dotStyles}
                 onClick={() => goToSlide(index)}
-                onMouseEnter={(e) => {
-                  if (index !== currentIndex) {
-                    e.currentTarget.style.backgroundColor = "#666";
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (index !== currentIndex) {
-                    e.currentTarget.style.backgroundColor = "#bbb";
-                  }
-                }}
+                // onMouseEnter={(e) => {
+                //   if (index !== currentIndex) {
+                //     e.currentTarget.style.backgroundColor = "#666";
+                //   }
+                // }}
+                // onMouseLeave={(e) => {
+                //   if (index !== currentIndex) {
+                //     e.currentTarget.style.backgroundColor = "#bbb";
+                //   }
+                // }}
               />
             ))}
           </div>
@@ -255,13 +255,13 @@ function GenericSlider<T>({
           <div
             style={rightArrowStyles}
             onClick={goToNext}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 1)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor =
-                "rgba(255, 255, 255, 0.9)";
-            }}
+            // onMouseEnter={(e) => {
+            //   e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 1)";
+            // }}
+            // onMouseLeave={(e) => {
+            //   e.currentTarget.style.backgroundColor =
+            //     "rgba(255, 255, 255, 0.9)";
+            // }}
           >
             ❯
           </div>

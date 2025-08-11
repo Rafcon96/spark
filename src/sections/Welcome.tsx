@@ -77,7 +77,6 @@ function Welcome() {
           <Button onClick={() => jumpToSection("contact")} text="בואו נדבר" />
         </div>
       </div>
-      <div className="absolute bottom-0 left-0 w-2.5 h-full">whatsapp</div>
     </section>
   );
 }

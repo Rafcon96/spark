@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Accordion from "./Accordion";
+import Button from "./Button";
 
 const Services: React.FC = () => {
   const [openAccordion, setOpenAccordion] = useState<number>(0); // First accordion open by default
@@ -16,8 +17,8 @@ const Services: React.FC = () => {
   };
 
   return (
-    <div className="w-full bg-[#FAFAFA] section-spacing">
-      <div className="container-custom">
+    <div className="container-1200 bg-[#FAFAFA] ">
+      <div className="container-custom w-full md:w-[792px] section-spacing">
         {/* Text Section */}
         <div className="flex flex-col items-center justify-center text-center">
           {/* Responsive H2 Heading */}
@@ -36,108 +37,48 @@ const Services: React.FC = () => {
         <div className="h-full mx-auto mt-16">
           <Accordion
             icon="/wellcom-icon1.svg"
-            heading="אסטרטגיה "
+            heading="אסטרטגיה"
             content={
               <div className="flex flex-col md:flex-row gap-6 md:gap-8 bg-white p-4 lg:p-6">
-                {/* Text Section - 66% on large screens */}
-                <div className="flex-1 lg:w-2/3 pt-2 lg:pt-4">
-                  {/* Semi Header */}
-                  <div className="mb-6">
-                    <p className="text-body-18 font-normal text-gray-800 mb-2 cursor-default">
-                      אנו מפתחים אסטרטגיות מיצוב מקיפות המותאמות לצרכי הלקוח
-                      ולמטרות העסק.
-                    </p>
-                    <p className="text-body-18 font-normal text-gray-800 cursor-default">
-                      הצוות שלנו מנתח את השוק, מזהה הזדמנויות ובונה תוכנית פעולה
-                      ברורה להשגת היעדים.
-                    </p>
-                  </div>
-
-                  {/* Success Points */}
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3">
-                      <div className="flex-shrink-0 w-5 h-5 mt-0.5">
-                        <svg
-                          className="w-5 h-5 text-green-500"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                      </div>
-                      <p className="text-body-18 text-gray-700 cursor-default">
-                        ניתוח מעמיק של השוק והמתחרים לזיהוי הזדמנויות עסקיות
+                {/* Text Section */}
+                <div className="flex-1 lg:w-2/3 pt-2 lg:pt-4 text-right">
+                  <p className="text-body-18 text-gray-800 mb-6 cursor-default">
+                    כל סיפור טוב מתחיל בדיוק. מה מניע אתכם, מה מבדל אתכם, ומה
+                    באמת חשוב. מכאן יוצאים לדרך עם מסר ברור, כיוון חד, ותוכנית
+                    שעובדת.
+                  </p>
+                  <div className="space-y-2">
+                    <div className="flex items-start gap-2 justify-start">
+                      <span className="w-5 h-5 text-gray-900">✓</span>
+                      <p className="text-body-16 text-gray-600">
+                        זיקוק הערך המבדל וה-DNA הייחודי
                       </p>
                     </div>
-
-                    <div className="flex items-start gap-3">
-                      <div className="flex-shrink-0 w-5 h-5 mt-0.5">
-                        <svg
-                          className="w-5 h-5 text-green-500"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                      </div>
-                      <p className="text-body-18 text-gray-700">
-                        פיתוח אסטרטגיית מיצוב ייחודית המבדילה אתכם מהמתחרים
+                    <div className="flex items-start gap-2 justify-start">
+                      <span className="w-5 h-5 text-gray-900">✓</span>
+                      <p className="text-body-16 text-gray-600">
+                        אפיון קהלים, פרסונות ויעדים תקשורתיים
                       </p>
                     </div>
-
-                    <div className="flex items-start gap-3">
-                      <div className="flex-shrink-0 w-5 h-5 mt-0.5">
-                        <svg
-                          className="w-5 h-5 text-green-500"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                      </div>
-                      <p className="text-body-18 text-gray-700">
-                        בניית תוכנית פעולה מפורטת עם יעדים ברורים ומדידים
+                    <div className="flex items-start gap-2 justify-start">
+                      <span className="w-5 h-5 text-gray-900">✓</span>
+                      <p className="text-body-16 text-gray-600">
+                        מיפוי שפה בשוק וגיבוש טון קול
                       </p>
                     </div>
-
-                    <div className="flex items-start gap-3">
-                      <div className="flex-shrink-0 w-5 h-5 mt-0.5">
-                        <svg
-                          className="w-5 h-5 text-green-500"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                      </div>
-                      <p className="text-body-18 text-gray-700">
-                        ליווי והדרכה בתהליך היישום והטמעת האסטרטגיה
+                    <div className="flex items-start gap-2 justify-start">
+                      <span className="w-5 h-5 text-gray-900">✓</span>
+                      <p className="text-body-16 text-gray-600">
+                        מיצוב חד ובניית מסרים מותאמים
                       </p>
                     </div>
                   </div>
                 </div>
-
-                {/* Image Section - 33% on large screens */}
+                {/* Image Section */}
                 <div className="lg:w-1/3 h-full lg:h-auto">
                   <img
-                    src="/strategy-bg.svg"
-                    alt="אסטרטגיה ומיצוב"
+                    src="/services/service-1.png"
+                    alt="אסטרטגיה"
                     className="w-full h-full object-cover rounded-lg"
                   />
                 </div>
@@ -151,15 +92,48 @@ const Services: React.FC = () => {
             icon="/wellcom-icon2.svg"
             heading="סטוריטלינג"
             content={
-              <div>
-                <p>
-                  שירותי כתיבה מקצועיים הכוללים תוכן שיווקי, מאמרים, פוסטים
-                  לרשתות חברתיות ועוד.
-                </p>
-                <p>
-                  אנו יוצרים תוכן איכותי המתאים לקהל היעד ומעביר את המסר בצורה
-                  ברורה ומשכנעת.
-                </p>
+              <div className="flex flex-col md:flex-row gap-6 md:gap-8 bg-white p-4 lg:p-6">
+                {/* Text Section */}
+                <div className="flex-1 lg:w-2/3 pt-2 lg:pt-4 text-right">
+                  <p className="text-body-18 text-gray-800 mb-6 cursor-default">
+                    סיפור טוב הוא המנוע. כשהרעיון חד, הערך ברור, והכיוון מדויק -
+                    סיפור טוב מחבר הכול לנרטיב שאי אפשר להתעלם ממנו.
+                  </p>
+                  <div className="space-y-2">
+                    <div className="flex items-start gap-2 justify-start">
+                      <span className="w-5 h-5 text-gray-900">✓</span>
+                      <p className="text-body-16 text-gray-600">
+                        זיקוק הערך המבדל וה-DNA הייחודי
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-2 justify-start">
+                      <span className="w-5 h-5 text-gray-900">✓</span>
+                      <p className="text-body-16 text-gray-600">
+                        אפיון קהלים, פרסונות ויעדים תקשורתיים
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-2 justify-start">
+                      <span className="w-5 h-5 text-gray-900">✓</span>
+                      <p className="text-body-16 text-gray-600">
+                        מיפוי שפה בשוק וגיבוש טון קול
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-2 justify-start">
+                      <span className="w-5 h-5 text-gray-900">✓</span>
+                      <p className="text-body-16 text-gray-600">
+                        מיצוב חד ובניית מסרים מותאמים
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                {/* Image Section */}
+                <div className="lg:w-1/3 h-full lg:h-auto">
+                  <img
+                    src="/services/service-2.png"
+                    alt="סטוריטלינג"
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
               </div>
             }
             isOpen={openAccordion === 1}
@@ -168,17 +142,50 @@ const Services: React.FC = () => {
 
           <Accordion
             icon="/wellcome-icon3.svg"
-            heading="תוכן"
+            heading="כתיבת תוכן"
             content={
-              <div>
-                <p>
-                  פיתוח זהות מותג שלמה הכוללת לוגו, צבעים, טיפוגרפיה וקווים
-                  מנחים עיצוביים.
-                </p>
-                <p>
-                  אנו מעצבים חומרי שיווק מרשימים המחזקים את המותג ויוצרים חוויה
-                  עקבית ברחבי הפלטפורמות.
-                </p>
+              <div className="flex flex-col md:flex-row gap-6 md:gap-8 bg-white p-4 lg:p-6">
+                {/* Text Section */}
+                <div className="flex-1 lg:w-2/3 pt-2 lg:pt-4 text-right">
+                  <p className="text-body-18 text-gray-800 mb-6 cursor-default">
+                    מילים שבונות תנועה. כשהן נכתבות נכון, הן מובילות להחלטות.
+                    אנחנו כותבים כדי להניע קהל לפעולה.
+                  </p>
+                  <div className="space-y-2">
+                    <div className="flex items-start gap-2 justify-start">
+                      <span className="w-5 h-5 text-gray-900">✓</span>
+                      <p className="text-body-16 text-gray-600">
+                        תוכן שיווקי לאתרים ודפי נחיתה
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-2 justify-start">
+                      <span className="w-5 h-5 text-gray-900">✓</span>
+                      <p className="text-body-16 text-gray-600">
+                        כתיבת הרצאות / סדנאות / נאומים
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-2 justify-start">
+                      <span className="w-5 h-5 text-gray-900">✓</span>
+                      <p className="text-body-16 text-gray-600">
+                        תסריטים לסרטוני שיווק
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-2 justify-start">
+                      <span className="w-5 h-5 text-gray-900">✓</span>
+                      <p className="text-body-16 text-gray-600">
+                        מסרים פנים-ארגוניים
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                {/* Image Section */}
+                <div className="lg:w-1/3 h-full lg:h-auto">
+                  <img
+                    src="/services/service-3.png"
+                    alt="כתיבת תוכן"
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
               </div>
             }
             isOpen={openAccordion === 2}
@@ -187,17 +194,56 @@ const Services: React.FC = () => {
 
           <Accordion
             icon="/wellcom-icon1.svg"
-            heading="דיגיטל"
+            heading="עיצוב ומיתוג"
             content={
-              <div>
-                <p>
-                  בנייה ופיתוח אתרי אינטרנט מתקדמים, חנויות מקוונות ויישומים
-                  דיגיטליים.
-                </p>
-                <p>
-                  מתמחים בחוויית משתמש מעולה, עיצוב רספונסיבי וביצועים גבוהים
-                  בכל המכשירים.
-                </p>
+              <div className="flex flex-col md:flex-row gap-6 md:gap-8 bg-white p-4 lg:p-6">
+                {/* Text Section */}
+                <div className="flex-1 lg:w-2/3 pt-2 lg:pt-4 text-right">
+                  <p className="text-body-18 text-gray-800 mb-6 cursor-default">
+                    אנחנו בונים נכסים. אתרים שמספרים סיפור ברור, עיצוב שמחזק את
+                    המותג, ותוכן יצירתי ומדויק, שמרגיש בדיוק כמוכם.
+                  </p>
+                  <div className="space-y-2">
+                    <div className="flex items-start gap-2 justify-start">
+                      <span className="w-5 h-5 text-gray-900">✓</span>
+                      <p className="text-body-16 text-gray-600">
+                        אפיון חוויית משתמש עם חשיבה שיווקית
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-2 justify-start">
+                      <span className="w-5 h-5 text-gray-900">✓</span>
+                      <p className="text-body-16 text-gray-600">
+                        פיתוח ועיצוב אתרים ודפי נחיתה
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-2 justify-start">
+                      <span className="w-5 h-5 text-gray-900">✓</span>
+                      <p className="text-body-16 text-gray-600">
+                        עיצוב גרפי לרשתות החברתיות
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-2 justify-start">
+                      <span className="w-5 h-5 text-gray-900">✓</span>
+                      <p className="text-body-16 text-gray-600">
+                        ניהול תוכן וקופירייטינג לקמפיינים
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-2 justify-start">
+                      <span className="w-5 h-5 text-gray-900">✓</span>
+                      <p className="text-body-16 text-gray-600">
+                        קידום אורגני וממומן בלינקדאין
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                {/* Image Section */}
+                <div className="lg:w-1/3 h-full lg:h-auto">
+                  <img
+                    src="/services/service-4.png"
+                    alt="עיצוב ומיתוג"
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
               </div>
             }
             isOpen={openAccordion === 3}
@@ -206,17 +252,56 @@ const Services: React.FC = () => {
 
           <Accordion
             icon="/wellcom-icon2.svg"
-            heading="עיצוב גרפי"
+            heading="דיגיטל ושיווק"
             content={
-              <div>
-                <p>
-                  ניהול מקצועי של רשתות חברתיות, יצירת תוכן ממוקד ופרסום מותאם
-                  לכל פלטפורמה.
-                </p>
-                <p>
-                  אנו בונים קהילות מעורבות ומגדילים את החשיפה והמכירות באמצעות
-                  אסטרטגיות דיגיטליות מתקדמות.
-                </p>
+              <div className="flex flex-col md:flex-row gap-6 md:gap-8 bg-white p-4 lg:p-6">
+                {/* Text Section */}
+                <div className="flex-1 lg:w-2/3 pt-2 lg:pt-4 text-right">
+                  <p className="text-body-18 text-gray-800 mb-6 cursor-default">
+                    אנחנו בונים נכסים. אתרים שמספרים סיפור ברור, עיצוב שמחזק את
+                    המותג, ותוכן יצירתי ומדויק, שמרגיש בדיוק כמוכם.
+                  </p>
+                  <div className="space-y-2">
+                    <div className="flex items-start gap-2 justify-start">
+                      <span className="w-5 h-5 text-gray-900">✓</span>
+                      <p className="text-body-16 text-gray-600">
+                        אפיון חוויית משתמש עם חשיבה שיווקית
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-2 justify-start">
+                      <span className="w-5 h-5 text-gray-900">✓</span>
+                      <p className="text-body-16 text-gray-600">
+                        פיתוח ועיצוב אתרים ודפי נחיתה
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-2 justify-start">
+                      <span className="w-5 h-5 text-gray-900">✓</span>
+                      <p className="text-body-16 text-gray-600">
+                        עיצוב גרפי לרשתות החברתיות
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-2 justify-start">
+                      <span className="w-5 h-5 text-gray-900">✓</span>
+                      <p className="text-body-16 text-gray-600">
+                        ניהול תוכן וקופירייטינג לקמפיינים
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-2 justify-start">
+                      <span className="w-5 h-5 text-gray-900">✓</span>
+                      <p className="text-body-16 text-gray-600">
+                        קידום אורגני וממומן בלינקדאין
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                {/* Image Section */}
+                <div className="lg:w-1/3 h-full lg:h-auto">
+                  <img
+                    src="/services/service-5.png"
+                    alt="דיגיטל ושיווק"
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
               </div>
             }
             isOpen={openAccordion === 4}
@@ -227,29 +312,69 @@ const Services: React.FC = () => {
             icon="/wellcome-icon3.svg"
             heading="הדרכות והכשרות"
             content={
-              <div>
-                <p>
-                  ייעוץ אסטרטגי לעסקים בתחומי השיווק, המכירות והפיתוח העסקי.
-                </p>
-                <p>
-                  מעבירים הדרכות וסדנאות למנהלים וצוותי עבודה לשיפור הביצועים
-                  והגדלת הרווחיות.
-                </p>
+              <div className="flex flex-col md:flex-row gap-6 md:gap-8 bg-white p-4 lg:p-6">
+                {/* Text Section */}
+                <div className="flex-1 lg:w-2/3 pt-2 lg:pt-4 text-right">
+                  <p className="text-body-18 text-gray-800 mb-6 cursor-default">
+                    ההדרכות שלנו נבנות כמו שמסר צריך להיבנות: מותאמות, ממוקדות
+                    וזכירות. עם כלים שמתרגלים כדי שיישארו, בדיוק כשצריך אותם.
+                  </p>
+                  <div>
+                    <div className="flex items-start gap-2 justify-start">
+                      <span className="w-5 h-5 text-gray-900">✓</span>
+                      <p className="text-body-16 text-gray-600">
+                        זיקוק הערך המבדל וה-DNA הייחודי
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-2 justify-start">
+                      <span className="w-5 h-5 text-gray-900">✓</span>
+                      <p className="text-body-16 text-gray-600">
+                        אפיון קהלים, פרסונות ויעדים תקשורתיים
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-2 justify-start">
+                      <span className="w-5 h-5 text-gray-900">✓</span>
+                      <p className="text-body-16 text-gray-600">
+                        מיפוי שפה בשוק וגיבוש טון קול
+                      </p>
+                    </div>
+                    <div className="flex items-start gap-2 justify-start">
+                      <span className="w-5 h-5 text-gray-900">✓</span>
+                      <p className="text-body-16 text-gray-600">
+                        מיצוב חד ובניית מסרים מותאמים
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                {/* Image Section */}
+                <div className="lg:w-1/3 h-full lg:h-auto">
+                  <img
+                    src="/services/service-6.png"
+                    alt="הדרכות והכשרות"
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                </div>
               </div>
             }
             isOpen={openAccordion === 5}
             onToggle={() => handleAccordionToggle(5)}
           />
         </div>
-      </div>
-      <div className="flex justify-center mt-12">
-        <div className="p-[2px] bg-gradient-horizontal rounded-lg shadow-[0_8px_32px_rgba(247,121,125,0.3),0_8px_32px_rgba(196,113,237,0.3),0_8px_32px_rgba(18,194,233,0.3),0_4px_16px_rgba(18,194,233,0.2)] hover:shadow-[0_12px_48px_rgba(247,121,125,0.4),0_12px_48px_rgba(196,113,237,0.4),0_12px_48px_rgba(18,194,233,0.4),0_6px_20px_rgba(18,194,233,0.3)] transition-all duration-300 hover:scale-105 active:scale-95">
-          <button
-            onClick={() => jumpToSection("contact")}
-            className="bg-black text-white text-body-24 font-bold px-8 py-6 rounded-lg w-full h-full cursor-pointer hover:bg-gray-900 active:bg-gray-800 transition-all duration-200 transform hover:translate-y-[-1px] active:translate-y-[1px]"
-          >
-            בואו נדבר
-          </button>
+
+        {/* <div className="flex justify-center mt-12">
+          <div className="p-[2px] bg-gradient-horizontal rounded-lg shadow-[0_8px_32px_rgba(247,121,125,0.3),0_8px_32px_rgba(196,113,237,0.3),0_8px_32px_rgba(18,194,233,0.3),0_4px_16px_rgba(18,194,233,0.2)] hover:shadow-[0_12px_48px_rgba(247,121,125,0.4),0_12px_48px_rgba(196,113,237,0.4),0_12px_48px_rgba(18,194,233,0.4),0_6px_20px_rgba(18,194,233,0.3)] transition-all duration-300 hover:scale-105 active:scale-95">
+            <button
+              onClick={() => jumpToSection("contact")}
+              className="bg-black text-white text-body-24 font-bold px-8 py-6 rounded-lg w-full h-full cursor-pointer hover:bg-gray-900 active:bg-gray-800 transition-all duration-200 transform hover:translate-y-[-1px] active:translate-y-[1px]"
+            >
+              בואו נדבר
+            </button>
+          </div>
+        </div> */}
+        <div className="flex justify-center ">
+          <div>
+            <Button onClick={() => jumpToSection("contact")} text="בואו נדבר" />
+          </div>
         </div>
       </div>
     </div>

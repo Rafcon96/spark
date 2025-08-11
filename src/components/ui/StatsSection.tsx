@@ -1,185 +1,141 @@
 import React, { useState, useEffect, useRef } from "react";
 import CountUp from "react-countup";
 
-interface StatColumn {
-  value: number;
-  height?: number;
-  content: string[];
-  width?: number;
-}
+// Interface no longer needed after refactor to tailwind-only responsive logic
 
 const StatsSection: React.FC = () => {
-  const [isMobile, setIsMobile] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
+
   const statsRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const checkScreenSize = () => {
-      setIsMobile(window.innerWidth < 1024);
-    };
-
-    checkScreenSize();
-    window.addEventListener("resize", checkScreenSize);
-    return () => window.removeEventListener("resize", checkScreenSize);
-  }, []);
-
   // Intersection Observer to detect when component is visible
+
+  // Auto-rotate active card every 2s, pause on hover
+  const [isPaused, setIsPaused] = useState(false);
   useEffect(() => {
-    const currentElement = statsRef.current;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
-        });
-      },
-      {
-        rootMargin: "0px 0px", // Trigger when 200px of component is visible
-        threshold: 0.1,
-      }
-    );
-
-    if (currentElement) {
-      observer.observe(currentElement);
-    }
-
-    return () => {
-      if (currentElement) {
-        observer.unobserve(currentElement);
-      }
-      observer.disconnect();
-    };
-  }, []);
-
-  // Infinite animation cycle
-  useEffect(() => {
+    if (isPaused) return;
     const interval = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % 4); // 4 is the number of stats
-    }, 3000); // 3 seconds
-
+      setActiveIndex((prevIndex) => (prevIndex + 1) % 4);
+    }, 4000);
     return () => clearInterval(interval);
-  }, []);
+  }, [isPaused]);
 
-  const statsData: StatColumn[] = [
+  // From Figma desktop (250:5785) and mobile (350:1859)
+  // Desktop order: 300, 400, 500, 25 with heights 300, 400, 500, 160
+  // Mobile widths: 300→276px, 400→326px, 500→fill, 25→202px
+  const statsData = [
     {
       value: 25,
-      height: 220,
-      width: 70,
-      content: ["שנה של ניסיון משותף"],
+      height: 160,
+      mobileWidthClass: "w-[60%]",
+      content: ["שנה של ניסיון", "משותף"],
     },
     {
       value: 500,
       height: 500,
-      width: 90,
-      content: ["הרצאות, הדרכות והכשרות "],
+      mobileWidthClass: "w-[90%]",
+      content: ["הרצאות, הדרכות", "והכשרות"],
     },
     {
       value: 400,
       height: 400,
-      width: 85,
-      content: ["עיצובי מצגות, אתרים וסושיאל"],
+      mobileWidthClass: "w-[88%]",
+      content: ["עיצובי מצגות,", "אתרים וסושיאל"],
     },
     {
       value: 300,
       height: 300,
-      width: 80,
-      content: ["תהליכי האסטרטגיה וסטוריטלינג"],
+      mobileWidthClass: "w-[75%]",
+      content: ["תהליכי האסטרטגיה", "וסטוריטלינג"],
     },
+  ] as const;
+
+  const desktopHeightClassByIndex = [
+    "xl:h-[160px]",
+    "xl:h-[500px]",
+    "xl:h-[400px]",
+    "xl:h-[300px]",
   ];
 
   return (
     <div
       ref={statsRef}
-      className="w-full flex flex-col lg:flex-row lg:items-end items-start justify-start gap-8 lg:gap-12 max-w-7xl mx-auto px-4"
+      dir="rtl"
+      className="flex flex-col xl:flex-row xl:items-end items-start justify-start gap-2 xl:gap-6 container-1200"
     >
       {/* First Column - Text Content */}
-      <div className="flex flex-col text-right lg:w-64 mb-8 lg:mb-0 lg:self-start">
-        <h2 className="text-h2-desktop font-bold  mb-4">
+      <div className="flex shrink-0 flex-col h-full self-end text-right  mb-8 xl:mb-0  xl:w-[383px] w-full gap-3 text-black">
+        <h2 className="text-h2-desktop font-bold">
           אנחנו <br />
-          SPARK.
+          .SPARK
         </h2>
-        <h2 className="text-body-24 font-semibold  mb-4">
+        <h2 className="text-body-24 font-semibold  ">
           השותפים האסטרטגיים שלכם לסיפורים חדים, מבודלים, שעושים את העבודה.
         </h2>
-        <p className="text-body-18 text-gray-500 mb-4">
-          חושבים כמו אסטרטגים, כותבים כמו קופירייטרים ומעצבים כמו בימאים.
+        <p className="text-body-18 text-gray-600 ">
+          חושבים כמו אסטרטגים,
+          <br /> כותבים כמו קופירייטרים <br />
+          ומעצבים כמו בימאים.
         </p>
-        <p className="text-body-18 text-gray-500">
-          נכנסים לעומק של מה שיש לכם ביד, מזקקים את ה- DNA שמייחד אתכם, ובונים
-          ממנו סיפור ברור, חד ומשכנע. סיפור שאנשים מבינים, זוכרים, ופועלים
-          בעקבותיו.
+        <p className="text-body-18 text-gray-600">
+          אנחנו צוללים לעומק הרעיון שלכם, מזקקים את ה-DNA שמייחד אתכם, ובונים
+          ממנו סיפור ברור, חד ומשכנע. סיפור שאנשים מבינים מיד, זוכרים לאורך זמן,
+          ופועלים בעקבותיו.
         </p>
       </div>
 
       {/* Stats Columns */}
-      {statsData.map((stat, index) => (
-        <div
-          key={index}
-          className="flex flex-col items-center lg:items-center max-lg:w-full max-lg:mb-6"
-        >
-          {/* Graph Column - Vertical on large screens, Horizontal on small screens */}
-          <div
-            className={`bg-transparent border-2 rounded-xl 
-                       lg:w-[120px] lg:xl:w-[160px] lg:flex-col lg:justify-between
-                       max-lg:w-full max-lg:flex max-lg:flex-row max-lg:items-baseline max-lg:justify-between
-                       flex p-6 mb-4 relative cursor-pointer
-                       transition-all duration-300 ease-in-out 
-                       hover:shadow-xl hover:shadow-gray-300/50 hover:border-gray-300 hover:scale-105 hover:z-10
-                       ${
-                         index === activeIndex
-                           ? "shadow-xl shadow-gray-300/50 border-gray-300 scale-101 z-10"
-                           : "border-[#E9EAEB]"
-                       }`}
-            style={
-              isMobile
-                ? {
-                    height: "80px",
-                    alignSelf: "flex-start",
-                    paddingLeft: "0px",
-                    paddingRight: "2px",
-                    justifySelf: "flex-start",
-                    width: `${stat.width}%`,
-                  }
-                : {
-                    height: `${stat.height}px`,
-                  }
-            }
-          >
-            {/* Content - appears first on mobile, second on desktop */}
-            <div className="text-center lg:text-center max-lg:text-left lg:order-2 max-lg:order-1">
-              {stat.content.map((line, lineIndex) => (
-                <p
-                  key={lineIndex}
-                  className="lg:text-body-18 text-gray-600  text-xs text-right pr-2 align-start"
-                >
-                  {line}
-                </p>
-              ))}
-            </div>
+      {statsData.map((stat, index) => {
+        const isActive = index === activeIndex;
+        const wrapperClass = [
+          "relative rounded-xl transition-all duration-700 ease-in",
+          isActive
+            ? "scale-101 z-10 p-[1px] bg-[linear-gradient(90deg,#F7797D_0%,#C471ED_52.08%,#12C2E9_100%)] shadow-[32px_48px_32px_rgba(18,194,233,0.12),-32px_12px_32px_rgba(247,121,125,0.12),0_24px_32px_rgba(196,113,237,0.12),0_32px_32px_rgba(196,113,237,0.12)] border-0"
+            : "border border-[#E9EAEB]",
+        ].join(" ");
 
-            {/* Value - appears last on mobile, first on desktop */}
-            <div className="text-center lg:text-center max-lg:text-right lg:order-1 max-lg:order-2 px-2">
-              <span className="text-h3-responsive font-bold text-gray-900">
-                {isVisible ? (
-                  <CountUp
-                    start={0}
-                    delay={0.2}
-                    end={stat.value}
-                    suffix="+"
-                    duration={3}
-                    separator=","
-                  />
-                ) : (
-                  <span>0</span>
-                )}
-              </span>
+        return (
+          <div key={index} className="flex flex-col w-full">
+            <div
+              className={`${wrapperClass} ${stat.mobileWidthClass} xl:w-[188px] h-20 ${desktopHeightClassByIndex[index]}`}
+              onMouseEnter={() => {
+                setActiveIndex(index);
+                setIsPaused(true);
+              }}
+              onMouseLeave={() => setIsPaused(false)}
+            >
+              {/* Inner card content */}
+              <div className="rounded-xl  bg-white flex flex-row xl:flex-col items-end xl:items-start justify-between h-full w-full px-4 py-4 xl:px-6 xl:py-6">
+                {/* Content - appears last on desktop */}
+                <div className="text-right xl:text-right xl:order-2 order-1">
+                  {stat.content.map((line: string, lineIndex: number) => (
+                    <p
+                      key={lineIndex}
+                      className="text-xs xl:text-body-18 text-gray-600"
+                    >
+                      {line}
+                    </p>
+                  ))}
+                </div>
+
+                {/* Value - first on desktop */}
+                <div className="text-right xl:text-right xl:order-1 order-2">
+                  <span className="text-h3-mobile xl:text-h3-desktop font-normal text-gray-900">
+                    <CountUp
+                      start={0}
+                      delay={0.2}
+                      end={stat.value}
+                      suffix="+"
+                      duration={3}
+                      separator=","
+                    />
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 };

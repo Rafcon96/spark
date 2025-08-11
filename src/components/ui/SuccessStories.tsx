@@ -3,41 +3,35 @@ import SuccessStoriesCarousel from "./SuccessStoriesCarousel";
 
 const SuccessStories: React.FC = () => {
   return (
-    <div className="w-full pt-12 lg:pt-24">
-      <div className="flex flex-col lg:flex-row justify-between px-16 gap-8 lg:gap-0">
+    <div className="w-full section-spacing" dir="rtl">
+      <div
+        className="container-1200 flex flex-col md:flex-row justify-between  md:px-0 "
+        style={{ justifyContent: "space-between" }}
+      >
         {/* Header - H2 Responsive, 3 Hebrew words */}
         <div className="w-full lg:w-auto">
-          <h2 className="text-h2-mobile lg:text-h2-desktop font-bold text-gray-900 mb-6 lg:mb-8 cursor-default">
-            סיפורי הצלחה
+          <h2 className="text-h2-mobile md:text-h2-desktop font-bold text-gray-900 mb-4 md:mb-8 cursor-default text-right">
+            יוצרים הצלחות
+            <br /> עם סיפורים
           </h2>
         </div>
 
         {/* Second Column */}
-        <div className="flex flex-col gap-4 w-full lg:w-auto">
+        <div className="flex flex-col gap-3 md:gap-4 w-full md:w-auto items-start text-right">
           {/* First Element - 3 lines Hebrew, body-16, color #535862 */}
-          <div className="text-body-16 text-[#535862] leading-relaxed cursor-default">
-            <p>
-              אנחנו גאים בהצלחות הלקוחות שלנו ובסיפורים המעוררים השראה שהם
-              יוצרים יחד איתנו.
-            </p>
-            <p>
-              כל פרויקט הוא הזדמנות חדשה ליצור שינוי משמעותי ולהביא תוצאות
-              מדהימות.
-            </p>
-            <p>
-              הצטרפו אלינו למסע של צמיחה, חדשנות והשגת יעדים שחשבתם שהם בלתי
-              אפשריים.
-            </p>
+          <div className="text-body-16 text-[#535862] leading-relaxed cursor-default max-w-[486px]">
+            כאן תמצאו את הרגעים שבהם זה קרה: רעיונות שזוקקו למסר חד. קונספטים
+            שהפכו למצגת, לסרטון, לקמפיין. סיפורים שהובילו לתוצאה ברורה – מכירה,
+            גיוס, שינוי תפיסה.
           </div>
 
           {/* Second Element - Caption lg with gradient, 2 lines, 7 words */}
           <div className="text-caption-lg bg-gradient-horizontal bg-clip-text text-transparent leading-relaxed w-fit cursor-default">
-            <p>צפו בסיפורים שמשנים חיים</p>
-            <p>ומגשימים חלומות עסקיים גדולים</p>
+            אלו הרגעים הכי חזקים שלנו. <br /> הטופ של הטופ.
           </div>
         </div>
       </div>
-      <div className="py-8 lg:py-12">
+      <div className="pt-4 md:pt-24 w-screen">
         <SuccessStoriesCarousel />
       </div>
     </div>

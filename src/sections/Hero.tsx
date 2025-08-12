@@ -108,8 +108,8 @@ function Hero() {
           ]}
           alt="Hero illustration"
           className="static lg:absolute top-0 h-full w-full hidden lg:block"
-          intervalMs={1700}
-          transitionMs={600}
+          intervalMs={1500}
+          transitionMs={800}
         />
         <CrossfadeImage
           sources={[
@@ -119,8 +119,8 @@ function Hero() {
           ]}
           alt="Hero illustration"
           className="static lg:absolute top-0 h-full w-full order-2 block lg:hidden"
-          intervalMs={1700}
-          transitionMs={600}
+          intervalMs={1500}
+          transitionMs={800}
         />
 
         {/* Text Content - Top on mobile, absolute positioned on large screens */}

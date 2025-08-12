@@ -14,7 +14,7 @@ function CrossfadeImage({
   sources,
   className = "",
   alt = "",
-  intervalMs = 1700,
+  intervalMs = 1500,
   transitionMs = 800,
 }: CrossfadeImageProps) {
   const [currentIndex, setCurrentIndex] = useState(0);

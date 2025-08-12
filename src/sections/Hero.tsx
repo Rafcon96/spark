@@ -14,43 +14,47 @@ function CrossfadeImage({
   sources,
   className = "",
   alt = "",
-  intervalMs = 2300,
+  intervalMs = 2000,
   transitionMs = 700,
 }: CrossfadeImageProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [overlayIndex, setOverlayIndex] = useState(0);
   const [showOverlay, setShowOverlay] = useState(false);
+  const [pendingFade, setPendingFade] = useState(false);
   const [measuredAspectRatio, setMeasuredAspectRatio] = useState<number | null>(
     null
   );
   const intervalRef = useRef<number | null>(null);
   const timeoutRef = useRef<number | null>(null);
+  const currentIndexRef = useRef(0);
+
+  // Preload all images to minimize flicker
+  useEffect(() => {
+    if (!sources || sources.length === 0) return;
+    sources.forEach((src) => {
+      const img = new Image();
+      img.decoding = "async";
+      img.src = src;
+    });
+  }, [sources]);
 
   useEffect(() => {
     if (!sources || sources.length <= 1) return;
 
     const startCycle = () => {
-      const nextIndex = (currentIndex + 1) % sources.length;
+      const nextIndex = (currentIndexRef.current + 1) % sources.length;
       setOverlayIndex(nextIndex);
-      setShowOverlay(true);
-
-      // After fade, swap base image to the next and hide overlay
-      timeoutRef.current = window.setTimeout(() => {
-        setCurrentIndex(nextIndex);
-        setShowOverlay(false);
-      }, transitionMs);
+      setPendingFade(true);
+      // Wait for overlay image to load before starting crossfade to prevent blink
     };
 
-    // Kick off immediately so first change happens at interval boundaries
     intervalRef.current = window.setInterval(startCycle, intervalMs);
 
     return () => {
       if (intervalRef.current) window.clearInterval(intervalRef.current);
       if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
     };
-    // We intentionally exclude transitionMs from deps to avoid resetting mid-fade
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentIndex, intervalMs, sources]);
+  }, [intervalMs, sources, transitionMs]);
 
   const baseSrc = sources?.[currentIndex] ?? "";
   const overlaySrc = sources?.[overlayIndex] ?? "";
@@ -67,6 +71,8 @@ function CrossfadeImage({
         <img
           src={baseSrc}
           alt={alt}
+          loading="eager"
+          decoding="async"
           className={`${
             measuredAspectRatio
               ? "absolute inset-0 h-full w-full object-cover"
@@ -86,10 +92,26 @@ function CrossfadeImage({
         <img
           src={overlaySrc}
           alt={alt}
+          loading="eager"
+          decoding="async"
           className={`absolute inset-0 w-full h-full object-cover transition-opacity ease-in-out pointer-events-none ${
             showOverlay ? "opacity-100" : "opacity-0"
           }`}
-          style={{ transitionDuration: `${transitionMs}ms` }}
+          style={{
+            transitionDuration: `${transitionMs}ms`,
+            willChange: "opacity",
+          }}
+          onLoad={() => {
+            if (!pendingFade) return;
+            setShowOverlay(true);
+            // After fade, swap base image to the next and hide overlay
+            timeoutRef.current = window.setTimeout(() => {
+              currentIndexRef.current = overlayIndex;
+              setCurrentIndex(overlayIndex);
+              setShowOverlay(false);
+              setPendingFade(false);
+            }, transitionMs);
+          }}
         />
       </div>
     </div>
@@ -108,7 +130,7 @@ function Hero() {
           ]}
           alt="Hero illustration"
           className="static lg:absolute top-0 h-full w-full hidden lg:block"
-          intervalMs={2300}
+          intervalMs={2000}
           transitionMs={700}
         />
         <CrossfadeImage
@@ -119,7 +141,7 @@ function Hero() {
           ]}
           alt="Hero illustration"
           className="static lg:absolute top-0 h-full w-full order-2 block lg:hidden"
-          intervalMs={2300}
+          intervalMs={2000}
           transitionMs={700}
         />
 

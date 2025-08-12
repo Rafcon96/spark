@@ -69,7 +69,7 @@ const ReviewCard: React.FC<ReviewCardProps> = (props) => {
               {props.authorName[0]}
             </div>
           )}
-          <div>
+          <div className="flex flex-col justify-start items-start">
             <div className=" font-semibold ">{props.authorName}</div>
             <div className="text-body-14 ">{props.authorRole}</div>
           </div>

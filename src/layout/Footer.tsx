@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
   return (
     <footer
       dir="rtl"
-      className="w-full bg-gray-900 text-white z-100 lg:-mt-[190px] -mt-[333px] "
+      className="w-full bg-gray-900 text-white z-100 lg:-mt-[250px] -mt-[730px] "
     >
       <div className="container-custom py-12">
         <div className="flex justify-center text-h3-mobile lg:text-h3-desktop px-6 pt-12">
@@ -19,7 +19,25 @@ const Footer: React.FC = () => {
         <div className="flex justify-center py-4">
           <div className="text-caption-sm">או באמצעות</div>
         </div>
+        {/* Contact */}
+        <div className="space-y-4">
+          <h4 className="text-lg font-semibold">או באמצעות</h4>
+          <ul className="space-y-2 text-sm text-gray-300">
+            <li>hello@spark.buzz</li>
+            <li>+1 (555) 123-4567</li>
+            <li>
+              123 Business St
+              <br />
+              Suite 100
+              <br />
+              City, ST 12345
+            </li>
+          </ul>
+        </div>
         <div className="flex justify-center pb-16">
+          <div className="flex flex-col justify-center py-4">
+            <div className="text-caption-sm px-2">רשתות חברתיות: </div>
+          </div>
           <SocialsComp />
         </div>
         <div className="flex justify-center pb-14">
@@ -43,7 +61,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-4">
+          {/* <div className="space-y-4">
             <h4 className="text-lg font-semibold">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li>
@@ -79,10 +97,10 @@ const Footer: React.FC = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </div> */}
 
           {/* Services */}
-          <div className="space-y-4">
+          {/* <div className="space-y-4">
             <h4 className="text-lg font-semibold">Services</h4>
             <ul className="space-y-2 text-sm">
               <li>
@@ -118,23 +136,7 @@ const Footer: React.FC = () => {
                 </a>
               </li>
             </ul>
-          </div>
-
-          {/* Contact */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold">Contact</h4>
-            <ul className="space-y-2 text-sm text-gray-300">
-              <li>hello@spark.com</li>
-              <li>+1 (555) 123-4567</li>
-              <li>
-                123 Business St
-                <br />
-                Suite 100
-                <br />
-                City, ST 12345
-              </li>
-            </ul>
-          </div>
+          </div> */}
         </div>
 
         {/* Bottom Bar */}

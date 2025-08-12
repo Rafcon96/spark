@@ -14,8 +14,8 @@ function CrossfadeImage({
   sources,
   className = "",
   alt = "",
-  intervalMs = 1500,
-  transitionMs = 800,
+  intervalMs = 2300,
+  transitionMs = 700,
 }: CrossfadeImageProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [overlayIndex, setOverlayIndex] = useState(0);
@@ -108,8 +108,8 @@ function Hero() {
           ]}
           alt="Hero illustration"
           className="static lg:absolute top-0 h-full w-full hidden lg:block"
-          intervalMs={1500}
-          transitionMs={800}
+          intervalMs={2300}
+          transitionMs={700}
         />
         <CrossfadeImage
           sources={[
@@ -119,8 +119,8 @@ function Hero() {
           ]}
           alt="Hero illustration"
           className="static lg:absolute top-0 h-full w-full order-2 block lg:hidden"
-          intervalMs={1500}
-          transitionMs={800}
+          intervalMs={2300}
+          transitionMs={700}
         />
 
         {/* Text Content - Top on mobile, absolute positioned on large screens */}

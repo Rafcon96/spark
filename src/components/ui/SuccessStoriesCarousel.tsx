@@ -12,33 +12,48 @@ const SuccessStoriesCarousel: React.FC = () => {
   const successStories: SuccessStory[] = [
     {
       id: 1,
-      imageSrc: "/success1.svg",
+      imageSrc: "/success/success1.svg",
       alt: "סיפור הצלחה 1",
     },
     {
       id: 2,
-      imageSrc: "/success2.svg",
+      imageSrc: "/success/success2.svg",
       alt: "סיפור הצלחה 2",
     },
     {
       id: 3,
-      imageSrc: "/success3.svg",
+      imageSrc: "/success/success3.svg",
       alt: "סיפור הצלחה 3",
     },
     {
       id: 4,
-      imageSrc: "/success4.jpg",
+      imageSrc: "/success/success4.svg",
       alt: "סיפור הצלחה 4",
     },
     {
       id: 5,
-      imageSrc: "/success5.jpg",
+      imageSrc: "/success/success5.svg",
       alt: "סיפור הצלחה 5",
     },
     {
       id: 6,
-      imageSrc: "/success6.jpg",
+      imageSrc: "/success/success6.svg",
       alt: "סיפור הצלחה 6",
+    },
+    {
+      id: 7,
+      imageSrc: "/success/success7.svg",
+      alt: "סיפור הצלחה 7",
+    },
+    {
+      id: 8,
+      imageSrc: "/success/success8.svg",
+      alt: "סיפור הצלחה 8",
+    },
+    {
+      id: 9,
+      imageSrc: "/success/success9.svg",
+      alt: "סיפור הצלחה 9",
     },
   ];
 

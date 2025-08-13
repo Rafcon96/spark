@@ -16,13 +16,27 @@ const Footer: React.FC = () => {
           גם הסיפור צריך להיות כזה.
         </div>
         <ContactForm />
-        <div className="flex justify-center py-4">
-          <div className="text-caption-sm">או באמצעות</div>
-        </div>
+        <div className="flex  py-4"></div>
         {/* Contact */}
-        <div className="space-y-4">
-          <h4 className="text-lg font-semibold">או באמצעות</h4>
-          <ul className="space-y-2 text-sm text-gray-300">
+        <div className="flex  self-center flex-col  sm:w-[500px] w-full gap-8 pb-8">
+          <div className="text-caption-sm">או באמצעות</div>
+          <div className="flex justify-between">
+            <div className="text-body-18 text-gray-600 align-baseline">
+              דואר אלקטרוני
+            </div>
+            <div className="font-poppins font-semibold text-lg leading-6 tracking-normal text-center bg-gradient-to-r from-[#F7797D] via-[#C471ED] to-[#12C2E9] bg-clip-text text-transparent">
+              hello@spark.buzz
+            </div>
+          </div>
+          <div className="flex  justify-between">
+            <div className="text-body-18 text-gray-600 align-baseline">
+              טלפון
+            </div>
+            <div className="font-poppins font-semibold text-lg leading-6 tracking-normal text-center bg-gradient-to-r from-[#F7797D] via-[#C471ED] to-[#12C2E9] bg-clip-text text-transparent">
+              05055555555
+            </div>
+          </div>
+          {/* <ul className="space-y-2 text-sm text-gray-300">
             <li>hello@spark.buzz</li>
             <li>+1 (555) 123-4567</li>
             <li>
@@ -32,7 +46,7 @@ const Footer: React.FC = () => {
               <br />
               City, ST 12345
             </li>
-          </ul>
+          </ul> */}
         </div>
         <div className="flex justify-center pb-16">
           <div className="flex flex-col justify-center py-4">
@@ -40,28 +54,27 @@ const Footer: React.FC = () => {
           </div>
           <SocialsComp />
         </div>
-        <div className="flex justify-center pb-14">
-          <img src={"./spark.svg"} alt="logo" />
+        <div className="flex justify-center py-14 ">
+          <img src={"./spark.svg"} className="w-full" alt="logo" />
         </div>
-        <div
+        {/* <div
           className="grid-custom grid-cols-custom-1 md:grid-cols-custom-4"
           dir={"ltr"}
+        > */}
+        {/* Company Info */}
+        <div
+          className=" flex justify-center cursor-pointer hover:scale-110 transition-all duration-300"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
-          <div className="flex justify-center">
-            <div className="w-[150px]  cursor-default"></div>
-            {/* <img src={"./spark.svg"} alt="logo" /> */}
-          </div>
-          {/* Company Info */}
-          <div className="space-y-4">
-            <h3 className="text-xl font-bold">Spark</h3>
-            <p className="text-gray-300 text-sm">
+          <img src={"./topIcon.svg"} className="w-fit" alt="logo" />
+          {/* <p className="text-gray-300 text-sm">
               Creating amazing digital experiences that inspire and engage users
               worldwide.
-            </p>
-          </div>
+            </p> */}
+        </div>
 
-          {/* Quick Links */}
-          {/* <div className="space-y-4">
+        {/* Quick Links */}
+        {/* <div className="space-y-4">
             <h4 className="text-lg font-semibold">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li>
@@ -99,8 +112,8 @@ const Footer: React.FC = () => {
             </ul>
           </div> */}
 
-          {/* Services */}
-          {/* <div className="space-y-4">
+        {/* Services */}
+        {/* <div className="space-y-4">
             <h4 className="text-lg font-semibold">Services</h4>
             <ul className="space-y-2 text-sm">
               <li>
@@ -137,7 +150,7 @@ const Footer: React.FC = () => {
               </li>
             </ul>
           </div> */}
-        </div>
+        {/* </div> */}
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">

@@ -16,24 +16,25 @@ const Footer: React.FC = () => {
           גם הסיפור צריך להיות כזה.
         </div>
         <ContactForm />
-        <div className="flex  py-4"></div>
-        {/* Contact */}
-        <div className="flex  self-center flex-col  sm:w-[500px] w-full gap-8 pb-8">
-          <div className="text-caption-sm">או באמצעות</div>
-          <div className="flex justify-between">
-            <div className="text-body-18 text-gray-600 align-baseline">
-              דואר אלקטרוני
+        <div className="flex  py-4 justify-center">
+          {/* Contact */}
+          <div className="flex  self-center flex-col  sm:w-[520px] w-full gap-8 pb-8">
+            <div className="text-caption-sm">או באמצעות</div>
+            <div className="flex justify-between">
+              <div className="text-body-18 text-gray-600 align-baseline">
+                דואר אלקטרוני
+              </div>
+              <div className="font-poppins font-semibold text-lg leading-6 tracking-normal text-center bg-gradient-to-r from-[#F7797D] via-[#C471ED] to-[#12C2E9] bg-clip-text text-transparent">
+                hello@spark.buzz
+              </div>
             </div>
-            <div className="font-poppins font-semibold text-lg leading-6 tracking-normal text-center bg-gradient-to-r from-[#F7797D] via-[#C471ED] to-[#12C2E9] bg-clip-text text-transparent">
-              hello@spark.buzz
-            </div>
-          </div>
-          <div className="flex  justify-between">
-            <div className="text-body-18 text-gray-600 align-baseline">
-              טלפון
-            </div>
-            <div className="font-poppins font-semibold text-lg leading-6 tracking-normal text-center bg-gradient-to-r from-[#F7797D] via-[#C471ED] to-[#12C2E9] bg-clip-text text-transparent">
-              05055555555
+            <div className="flex  justify-between">
+              <div className="text-body-18 text-gray-600 align-baseline">
+                טלפון
+              </div>
+              <div className="font-poppins font-semibold text-lg leading-6 tracking-normal text-center bg-gradient-to-r from-[#F7797D] via-[#C471ED] to-[#12C2E9] bg-clip-text text-transparent">
+                05055555555
+              </div>
             </div>
           </div>
           {/* <ul className="space-y-2 text-sm text-gray-300">

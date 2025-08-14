@@ -31,7 +31,7 @@ function Welcome() {
         {/* 3 Column Layout */}
         <div className="grid-custom grid-cols-custom-1 md:grid-cols-custom-3 text-body-16 self-start md:self-center py-8">
           {/* Column 1 */}
-          <div className="flex md:flex-col flex-row  items-center md:text-center gap-4 w-[256px] md:w-full">
+          <div className="flex md:flex-col flex-row items-center  md:text-center gap-4 md:w-[256px] w-full">
             <img
               src="/wellcom-icon1.svg"
               alt="Icon 1"

@@ -15,7 +15,7 @@ const ContactForm: React.FC = () => {
 
   return (
     <div id="contact" className="w-full bg-gray-900 py-12">
-      <div className="max-w-[560px] mx-auto px-4" dir="rtl">
+      <div className="max-w-[560px] mx-auto md:px-4 px-0" dir="rtl">
         <div className="text-center mb-8">
           <div className="flex justify-center text-body-18 lg:text-h3-desktop px-6 max-w-[500px] text-center text-white cursor-default mx-auto">
             אנחנו כאן כדי לבנות אותו איתכם.
